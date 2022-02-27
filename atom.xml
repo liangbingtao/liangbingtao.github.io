@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>neo&#39;s blogs</title>
+  
+  <subtitle>多多重复，百炼成钢！</subtitle>
+  <link href="http://liangbingtao.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://liangbingtao.github.io/"/>
+  <updated>2022-02-27T09:43:55.509Z</updated>
+  <id>http://liangbingtao.github.io/</id>
+  
+  <author>
+    <name>neo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java虚拟机笔记(1)</title>
+    <link href="http://liangbingtao.github.io/2022/02/27/jvm-bi-ji-yi/"/>
+    <id>http://liangbingtao.github.io/2022/02/27/jvm-bi-ji-yi/</id>
+    <published>2022-02-27T01:25:00.000Z</published>
+    <updated>2022-02-27T09:43:55.509Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;走进JVM&quot;&gt;&lt;a href=&quot;#走进JVM&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java基础" scheme="http://liangbingtao.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="Java基础" scheme="http://liangbingtao.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="编程" scheme="http://liangbingtao.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java虚拟机笔记(3)</title>
+    <link href="http://liangbingtao.github.io/2022/02/27/jvm-bi-ji-san/"/>
+    <id>http://liangbingtao.github.io/2022/02/27/jvm-bi-ji-san/</id>
+    <published>2022-02-27T01:25:00.000Z</published>
+    <updated>2022-02-27T09:44:42.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;类与类加载&quot;&gt;&lt;a href=&quot;#类与类加载&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java基础" scheme="http://liangbingtao.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="Java基础" scheme="http://liangbingtao.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="编程" scheme="http://liangbingtao.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java虚拟机笔记(2)</title>
+    <link href="http://liangbingtao.github.io/2022/02/27/jvm-bi-ji-er/"/>
+    <id>http://liangbingtao.github.io/2022/02/27/jvm-bi-ji-er/</id>
+    <published>2022-02-27T01:25:00.000Z</published>
+    <updated>2022-02-27T09:44:23.046Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;JVM内存管理&quot;&gt;&lt;a href=&quot;#JVM内存管理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java基础" scheme="http://liangbingtao.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="Java基础" scheme="http://liangbingtao.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="编程" scheme="http://liangbingtao.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+</feed>
