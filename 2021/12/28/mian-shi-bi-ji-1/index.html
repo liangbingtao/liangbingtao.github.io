@@ -1,0 +1,1678 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="面试笔记1, neo&#39;s blog">
+    <meta name="description" content="阿里春招实习生面试这次面试计算机网络问的比较多，说明阿里对这些还是比较看重的，这也是接下来需要关注的部分，其次就是MySQL数据库和java的一些基础知识。下面是记起来的一些问题，记录下来，逐一查阅解决。
+1、传输层有哪些协议，应用层有哪些">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>面试笔记1 | neo&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/favicon.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">neo&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/favicon.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">neo&#39;s blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">面试笔记1</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">编程</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">面试笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                面试
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-12-28
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="阿里春招实习生面试"><a href="#阿里春招实习生面试" class="headerlink" title="阿里春招实习生面试"></a>阿里春招实习生面试</h1><p>这次面试计算机网络问的比较多，说明阿里对这些还是比较看重的，这也是接下来需要关注的部分，其次就是MySQL数据库和java的一些基础知识。下面是记起来的一些问题，记录下来，逐一查阅解决。</p>
+<h2 id="1、传输层有哪些协议，应用层有哪些协议？"><a href="#1、传输层有哪些协议，应用层有哪些协议？" class="headerlink" title="1、传输层有哪些协议，应用层有哪些协议？"></a>1、传输层有哪些协议，应用层有哪些协议？</h2><p>百度百科：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%B1%82/4329536?fr=aladdin">https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%B1%82/4329536?fr=aladdin</a></p>
+<blockquote>
+<p>传输层是整个网络体系结构中的关键层次之一，主要负责向两个主机中进程之间的通信提供服务。由于一个主机同时运行多个进程，因此运输层具有复用和分用功能。传输层在终端用户之间提供透明的数据传输，向上层提供可靠的数据传输服务。传输层在给定的链路上通过流量控制、分段/重组和差错控制来保证数据传输的可靠性。传输层的一些协议是面向链接的，这就意味着传输层能保持对分段的跟踪，并且重传那些失败的分段。</p>
+</blockquote>
+<p>传输层中最为常见的两个协议分别是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AETCP/22264413">传输控制协议TCP</a>（Transmission Control Protocol）和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE/8535496">用户数据报协议</a>UDP（User Datagram Protocol） [1]  。传输层提供逻辑连接的建立、传输层寻址、数据传输、传输连接释放、流量控制、拥塞控制、多路复用和解复用、崩溃恢复等服务。</p>
+<p><strong>基本功能</strong></p>
+<blockquote>
+<p>传输层提供了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA">主机</a>应用程序进程之间的端到端的服务，基本功能如下：</p>
+<p>(1) 分割与重组数据</p>
+<p>(2) 按<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3%E5%8F%B7">端口号</a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%BB%E5%9D%80">寻址</a></p>
+<p>(3) 连接管理</p>
+<p>(4) <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6">差错控制</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6">流量控制</a>,纠错的功能</p>
+<p>传输层要向<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%9A%E8%AF%9D%E5%B1%82">会话层</a>提供通信服务的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%AF%E9%9D%A0%E6%80%A7">可靠性</a>，避免<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8A%A5%E6%96%87">报文</a>的出错、丢失、延迟时间紊乱、重复、乱序等差错。</p>
+</blockquote>
+<p><strong>传输层协议</strong></p>
+<blockquote>
+<p>面向连接的传输协议（TCP）：数据传输之前必须先建立连接,数据传输完成之后,必须释放连接。仅支持单播传输：每条传输连接只能有两个端点，只能进行点对点的连接，不支持多播和广播的传输方式,UDP是支持的。</p>
+<p>提供可靠的交付服务：传送的数据无差错。不丢失，不重复，且顺序与与源数据一致。</p>
+<p>传输单位是数据段：每次发送的数据段不固定,受应用层传送报文大小和网络中的MTU(最大传输单元)值大小的影响。最小数据段可能仅有21个字节(其中20个字节属于TCP头部,数据部分仅1字节)。</p>
+<p>支持全双工传输：通信双方可以同时发数据和接收数据。</p>
+<p>TCP连接是基于字节流的：UDP是基于报文流的。</p>
+<p>TCP是一个可以保证可靠数据传输的传输层协议，主要采用采用以下四个机制实现数据可靠性传输。</p>
+<p>字节编号机制：TCP数据段以字节为单位对数据段的”数据”部分进行一一编号，确保每一个字节的数据都可以有序传送和接收。</p>
+<p>数据段确认机制：每接收一个数据段都必须由接收端向发送端返回确认数据段，其中的确认号表示已经正确接收的数据段序号。</p>
+<p>超时重传机制：TCP中有一个重传定时器(RTT)，发送一个数据段的同时也开启这个定时器，如果定时器过期之时还没有返回确认，则定时器停止,重传该数据。</p>
+<p>选择性确认机制：(Selective ACK,SACK)/只重传缺少部分的数据，不会重传那些已经正确接收的数据。</p>
+<p>UDP 是User Datagram Protocol的简称， 中文名是用户数据报协议，是OSI（Open System Interconnection，开放式系统互联） 参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务，IETF RFC 768是UDP的正式规范。UDP在IP报文的协议号是17 [2]  。</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/UDP/571511">UDP</a>协议全称是用户数据报协议，在网络中它与TCP协议一样用于处理数据包，是一种无连接的协议。在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/OSI%E6%A8%A1%E5%9E%8B/10119902">OSI模型</a>中，在第四层——传输层，处于IP协议的上一层。<strong>UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点</strong>，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。UDP用来支持那些需要在计算机之间传输数据的网络应用。包括网络视频会议系统在内的众多的客户/服务器模式的网络应用都需要使用UDP协议。<strong>UDP报文分为UDP报文头和UDP数据区域两个部分。报头由源端口，目的端口，报文长度以及校验和组成。</strong>UDP适合于实时数据传输，比如语音和视频通信。相比TCP，UDP的传输效率更高，开销更小，但是无法保证数据传输可靠性。UDP头部的标识如下：</p>
+<p>1）16位源端口号：源主机的应用程序使用的端口号。</p>
+<p>2）16位目的端口号：目的主机的应用程序使用的端口号。</p>
+<p>3）16位UDP长度：是指UDP头部和UDP数据的字节长度。因为UDP头部长度是8字节，所以字段的最小值为8。</p>
+<p>4）16位UDP校验和：该字段提供了与TCP校验字段同样的功能；该字段是可选的。</p>
+</blockquote>
+<h2 id="2、-进程和线程之间的区别？"><a href="#2、-进程和线程之间的区别？" class="headerlink" title="2、 进程和线程之间的区别？"></a>2、 进程和线程之间的区别？</h2><p>进程是资源分配的最小单位，线程是程序执行的最小单位。</p>
+<ol>
+<li>进程</li>
+</ol>
+<blockquote>
+<p>进程是程序的一次执行过程，是一个动态概念，是程序在执行过程中分配和管理资源的基本单位，每一个进程都有一个自己的地址空间，至少有 5 种基本状态，它们是：初始态，执行态，等待状态，就绪状态，终止状态。</p>
+</blockquote>
+<ol start="2">
+<li>线程</li>
+</ol>
+<blockquote>
+<p>线程是CPU调度和分派的基本单位，它可与同属一个进程的其他的线程共享进程所拥有的全部资源。</p>
+</blockquote>
+<ol start="3">
+<li>联系</li>
+</ol>
+<blockquote>
+<p>线程是进程的一部分，一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程。</p>
+</blockquote>
+<ol start="4">
+<li>区别</li>
+</ol>
+<blockquote>
+<p>根本区别：进程是操作系统资源分配的基本单位，而线程是任务调度和执行的基本单位</p>
+<p>在开销方面：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小。</p>
+<p>所处环境：在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</p>
+<p>内存分配方面：系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了CPU外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源。</p>
+<p>包含关系：没有线程的进程可以看做是单线程的，如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线（线程）共同完成的；线程是进程的一部分，所以线程也被称为轻权进程或者轻量级进程。</p>
+<p>那么执行与调度的基本单位是线程，这样设置有什么好处？</p>
+<p>计算机操作系统里面有两个重要概念：并发和隔离。<br>        并发是为了尽量让硬件利用率高，线程是为了在系统层面做到并发。线程上下文切换效率比进程上下文切换会高很多，这样可以提高并发效率。</p>
+<p>隔离也是并发之后要解决的重要问题，计算机的资源一般是共享的，隔离要能保障崩溃了这些资源能够被回收，不影响其他代码的使用。所以说一个操作系统只有线程没有进程也是可以的，只是这样的系统会经常崩溃而已，操作系统刚开始发展的时候和这种情形很像。</p>
+<p>所以：线程和并发有关系，进程和隔离有关系。线程基本是为了代码并发执行引入的概念，因为要分配cpu时间片，暂停后再恢复要能够继续和没暂停一样继续执行；进程相当于一堆线程加上线程执行过程中申请的资源，一旦挂了，这些资源都要能回收，不影响其他程序。</p>
+</blockquote>
+<p>区别：</p>
+<blockquote>
+<p>1、进程是资源分配最小单位，线程是程序执行的最小单位；<br>2、进程有自己独立的地址空间，每启动一个进程，系统都会为其分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据；<br>3、CPU切换一个线程比切换进程花费小；<br>4、创建一个线程比进程开销小；<br>5、线程占用的资源要比进程少很多。<br>6、线程之间通信更方便，同一个进程下，线程共享全局变量，静态变量等数据，进程之间的通信需要以通信的方式（IPC）进行；（但多线程程序处理好同步与互斥是个难点）<br>7、多进程程序更安全，生命力更强，一个进程死掉不会对另一个进程造成影响（源于有独立的地址空间），多线程程序更不易维护，一个线程死掉，整个进程就死掉了（因为共享地址空间）；<br>8、进程对资源保护要求高，开销大，效率相对较低，线程资源保护要求不高，但开销小，效率高，可频繁切换；</p>
+</blockquote>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1618231168797.png"></p>
+<h2 id="3、网络传输中如何检测丢包？丢包之后如何处理？"><a href="#3、网络传输中如何检测丢包？丢包之后如何处理？" class="headerlink" title="3、网络传输中如何检测丢包？丢包之后如何处理？"></a>3、网络传输中如何检测丢包？丢包之后如何处理？</h2><blockquote>
+<p>为了满足TCP协议不丢包。TCP协议有如下规定：</p>
+<p>　　1. 数据分片：发送端对数据进行分片，接受端要对数据进行重组，由TCP确定分片的大小并控制分片和重组</p>
+<p>　　2. 到达确认：接收端接收到分片数据时，根据分片数据序号向发送端发送一个确认</p>
+<p>　　3. 超时重发：发送方在发送分片时设置超时定时器，如果在定时器超时之后没有收到相应的确认，重发分片数据</p>
+<p>　　4. 滑动窗口：TCP连接的每一方的接受缓冲空间大小固定，接收端只允许另一端发送接收端缓冲区所能接纳的数据，TCP在滑动窗口的基础上提供流量控制，防止较快主机致使较慢主机的缓冲区溢出</p>
+<p>　　5. 失序处理：作为IP数据报来传输的TCP分片到达时可能会失序，TCP将对收到的数据进行重新排序，将收到的数据以正确的顺序交给应用层;</p>
+<p>　　6. 重复处理：作为IP数据报来传输的TCP分片会发生重复，TCP的接收端必须丢弃重复的数据;</p>
+<p>　　7. 数据校验：TCP将保持它首部和数据的检验和，这是一个端到端的检验和，目的是检测数据在传输过程中的任何变化。如果收到分片的检验或有差错，TCP将丢弃这个分片，并不确认收到此报文段导致对端超时并重发</p>
+</blockquote>
+<h2 id="4、MySQL索引"><a href="#4、MySQL索引" class="headerlink" title="4、MySQL索引"></a>4、MySQL索引</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010648555/article/details/81102957">https://blog.csdn.net/u010648555/article/details/81102957</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">http://blog.codinglabs.org/articles/theory-of-mysql-index.html</a></p>
+<h2 id="5、内连接和外连接分别是什么，有什么区别？"><a href="#5、内连接和外连接分别是什么，有什么区别？" class="headerlink" title="5、内连接和外连接分别是什么，有什么区别？"></a>5、内连接和外连接分别是什么，有什么区别？</h2><p> 内连接用左表记录去匹配右表记录，如果符合条件则显示，匹配不上不显示；左外连接用左表记录匹配右表，如果符合条件则显示，否则则显示NULL，可以理解为在内连接的基础上保证左表数据的全部显示；右外连接是用右边表的记录去匹配左边表的记录，如果符合条件则显示，否则显示NULL，可以理解为在内连接的基础上优先显示右表中的数据全部显示。</p>
+<h2 id="6、arrayList和LinkedList的区别？"><a href="#6、arrayList和LinkedList的区别？" class="headerlink" title="6、arrayList和LinkedList的区别？"></a>6、arrayList和LinkedList的区别？</h2><p>Arraylist：底层是基于动态数组，连续内存存储，根据下标随机访问数组元素的效率高，向数组尾部添加元素的效率高；但是，删除数组中的数据以及向数组中间添加数据效率低，因为需要移动数组。例如最坏的情况是删除第一个数组元素，则需要将第2至第n个数组元素各向前移动一位。</p>
+<p>而之所以称为动态数组，是因为数组长度固定，Arraylist在数组元素超过其容量大，Arraylist可以进行扩容（针对JDK1.8  数组扩容后的容量是扩容前的1.5倍）超出长度存数据时需要先新建数组，然后将老数组的数据拷贝到新数组，，Arraylist源码中最大的数组容量是Integer.MAX_VALUE-8，对于空出的8位，目前解释是 ：①存储Headerwords；②避免一些机器内存溢出，减少出错几率，所以少分配③最大还是能支持到Integer.MAX_VALUE（当Integer.MAX_VALUE-8依旧无法满足需求时）。</p>
+<p>Linkedlist基于链表的动态数组，可以存储在分散的内存中，数据添加删除效率高，只需要改变指针指向即可，但是访问数据的平均效率低，需要对链表进行遍历。</p>
+<p>遍历LinkedList必须使用iterator，不能使用for循环，因为每次对for循环体内通过get(i)取得某一元素时，都需要重新进行遍历，性能消耗极大。</p>
+<p>另外不要试图使用indexOf等返回元素索引，并利用其进行遍历，使用indexOf对list进行了遍历，当结果为空时会遍历整个列表。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1618906953133.png"></p>
+<h2 id="7、hashMap的底层实现原理？"><a href="#7、hashMap的底层实现原理？" class="headerlink" title="7、hashMap的底层实现原理？"></a>7、hashMap的底层实现原理？</h2><p><strong>hashMap底层实现原理解析</strong></p>
+<p>我们常见的有数据结构有三种结构：1、数组结构 2、链表结构 3、哈希表结构 下面我们来看看各自的数据结构的特点：</p>
+<blockquote>
+<p>1、数组结构： 存储区间连续、内存占用严重、空间复杂度大</p>
+<p>优点：随机读取和修改效率高，原因是数组是连续的（随机访问性强，查找速度快）<br>        缺点：插入和删除数据效率低，因插入数据，这个位置后面的数据在内存中都要往后移动，且大小固定不易动态扩展。</p>
+</blockquote>
+<blockquote>
+<p>2、链表结构：存储区间离散、占用内存宽松、空间复杂度小</p>
+<p>优点：插入删除速度快，内存利用率高，没有固定大小，扩展灵活<br>        缺点：不能随机查找，每次都是从第一个开始遍历（查询效率低）</p>
+</blockquote>
+<blockquote>
+<p>3、哈希表结构：结合数组结构和链表结构的优点，从而实现了查询和修改效率高，插入和删除效率也高的一种数据结构，常见的HashMap就是这样的一种数据结构</p>
+</blockquote>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1618907870013.png"></p>
+<p>hashMap中的put()和get()的实现原理：</p>
+<ol>
+<li><p>map.put(k,v)实现原理：</p>
+<p>（1）首先将k,v封装到Node对象当中（节点）。<br>（2）然后它的底层会调用K的hashCode()方法得出hash值。<br>（3）通过哈希表函数/哈希算法，将hash值转换成数组的下标，下标位置上如果没有任何元素，就把Node添加到这个位置上。如果说下标对应的位置上有链表。此时，就会拿着k和链表上每个节点的k进行equal。如果所有的equals方法返回都是false，那么这个新的节点将被添加到链表的末尾。如其中有一个equals返回了true，那么这个节点的value将会被覆盖。</p>
+</li>
+<li><p>map.get(k)实现原理：</p>
+<p>(1)先调用k的hashCode()方法得出哈希值，并通过哈希算法转换成数组的下标。<br>(2)通过上一步哈希算法转换成数组的下标之后，在通过数组下标快速定位到某个位置上。如果这个位置上什么都没有，则返回null。如果这个位置上有单向链表，那么它就会拿着K和单向链表上的每一个节点的K进行equals，如果所有equals方法都返回false，则get方法返回null。如果其中一个节点的K和参数K进行equals返回true，那么此时该节点的value就是我们要找的value了，get方法最终返回这个要找的value。</p>
+<p><strong>为何随机增删、查询效率都很高的原因是？</strong><br><strong>原因</strong>: 增删是在链表上完成的，而查询只需扫描部分，则效率高。</p>
+</li>
+</ol>
+<h3 id="HashMap和Hashtable的区别"><a href="#HashMap和Hashtable的区别" class="headerlink" title="HashMap和Hashtable的区别"></a>HashMap和Hashtable的区别</h3><p>HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄清楚它们之间的分别。主要的区别有：线程安全性，同步(synchronization)，以及速度。</p>
+<ol>
+<li>HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则不行)。</li>
+<li>HashMap是非synchronized，而Hashtable是synchronized，这意味着Hashtable是线程安全的，多个线程可以共享一个Hashtable；而如果没有正确的同步的话，多个线程是不能共享HashMap的。Java 5提供了ConcurrentHashMap，它是HashTable的替代，比HashTable的扩展性更好。</li>
+<li>另一个区别是HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。所以当有其它线程改变了HashMap的结构（增加或者移除元素），将会抛出ConcurrentModificationException，但迭代器本身的remove()方法移除元素则不会抛出ConcurrentModificationException异常。但这并不是一个一定发生的行为，要看JVM。这条同样也是Enumeration和Iterator的区别。</li>
+<li>由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。</li>
+<li>HashMap不能保证随着时间的推移Map中的元素次序是不变的。</li>
+</ol>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361044657.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361108620.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361130672.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361179601.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361256577.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361271112.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629361436083.png"></p>
+<p><strong>说说你对红黑树的理解</strong></p>
+<p>红黑树是一种自平衡的<strong>二叉查找树</strong>，是一种高效的查找树。</p>
+<p>红黑树通过如下的性质定义实现自平衡：</p>
+<ul>
+<li>节点是红色或黑色</li>
+<li>根是黑色，所有叶子节点都是黑色（叶子节点是NIL节点）</li>
+<li>每个红色节点必须有两个黑色的子节点。（从每个叶子节点到根的所有路径上不能有两个连续的红色节点）</li>
+<li>从任一节点到其每个叶子的所有简单路径包含相同数目的黑色节点（简称黑高）</li>
+</ul>
+<p><strong>HashMap的长度为什么是2的N次方呢？</strong></p>
+<p>为了能让HashMap存数据和取数据的效率高，尽可能的减少hash碰撞，也就是说尽量把数据能均匀的分配，每个链表或者红黑树的长度尽量相等。我们首先可能会想到%取模的操作来实现。下面是重点：</p>
+<blockquote>
+<p>取余（%）操作中如果除数是2的幂次，则等价于与其除数减一的与（&amp;）操作，（也就是说hash%lenth==hash&amp;(length-1)的前提是length是2的n次方）。并且，采用二进制位操作&amp;相对于%能够提高运算效率。这就是为什么hashmap的长度需要2的N次方了。</p>
+</blockquote>
+<p><strong>HashMap和HashTable有什么区别</strong></p>
+<ol>
+<li>hashmap是线程不安全的，HashTable是线程安全的；</li>
+<li>线程安全所以HashTable的效率比不上HashMap；</li>
+<li>HashMap最多只允许一条记录的键为null,允许多条记录的值为null,而HashTable不允许；</li>
+<li>HashMap默认初始化数组的大小为16，HashTable为11，前者扩容时扩大两倍，后者扩大两倍加1；</li>
+<li>hashmap需要重新计算hash值，HashTable直接使用对象的hashcode；</li>
+</ol>
+<h2 id="8、TCP连接的建立：三次握手"><a href="#8、TCP连接的建立：三次握手" class="headerlink" title="8、TCP连接的建立：三次握手"></a>8、TCP连接的建立：三次握手</h2><p>通过TCP连接，无论哪一方向另一方发送数据之前，都必须先在双方之间建立一条连接。在TCP/IP协议中，TCP协议提供可靠的连接服务，连接是通过三次握手进行初始化的。三次握手的目的是<strong>同步连接双方的序列号和确认号并交换 TCP窗口大小信息</strong>。 </p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630402931732.png"></p>
+<p>三次握手之后，双方开始传数据。</p>
+<p>整个流程如下：<br>        1、客户端和服务端最初都为CLOSED状态。客户端主动打开，发送连接请求报文段，将SYN标识位置为1(TCP规定SYN=1时不能携带数据)，Sequence Number置为a（a为随机值），然后客户端状态变为：CLOSED=&gt;SYN_SEND状态；</p>
+<p>2、服务器收到SYN报文段进行确认，将SYN标识位置为1，ACK置为1，Sequence Number置为b，Acknowledgment Number置为a+1，然后服务端状态变为：CLOSED=&gt;SYN_RECV状态。客户端接收到服务端信息后状态变为：SYN_SEND=&gt;ESTAB_LISHED；<br>        3、客户端再进行一次确认，将ACK置为1（此时不用SYN），Sequence Number置为a+1，Acknowledgment Number置为b+1发向服务器，服务端状态变为：SYN_RECV=&gt;ESTAB_LISHED状态。</p>
+<p>其本质是双方依次向对发一个数字Sequence Number并让对方返回一个确认数字Acknowledgment Number。如果对方返回的确认数字符合我的预期，表示安全，可以建立连接了。</p>
+<p>比如，客户端和服务端通讯类似这个场景。</p>
+<p>客户端和服务端是俩死党，他俩约定为了防止聊天聊错了对象，聊天前需要确认下信息，对下黑话。<br>比如定了一个暗号，谁要说话就带了一个数字A，你下次也要发给我确认这个数字，规律是这个数字默认+1。<br>于是，某一天下午，<br>客户端和服务端都在午睡，<br>客户端做了噩梦，自己醒了，想找服务端唠唠家常……<br>  客户端：服务端你好，咱俩唠唠吧（SYNC变为1了），9527<br>  服务端：没问题（给客户端一个确认信息了ACK=1），666，9528（确认数字），咱开始聊吧（SYNC=1）<br>  客户端：好吧开始聊（给服务端也回一个确认信息ACK=1，这时就不用说咱开始聊吧所以不用再传SYNC=1了）。9528，667（确认数字）</p>
+<p>  客户端/服务端： 晚上咱去喝点？（这就开始传数据了）</p>
+<h3 id="8-1-为什么需要三次握手"><a href="#8-1-为什么需要三次握手" class="headerlink" title="8.1 为什么需要三次握手"></a>8.1 为什么需要三次握手</h3><p><strong>三次握手，主要解决：为了防止已失效的连接请求报文段突然又传送到了服务端。</strong><br>        如果取消第三次握手，那么只要服务器确认后就开始建立连接。假如有一个客户端请求由于某种原因延迟了很久才到达服务端，而此时客户端并没有发起建立连接。但是服务端确认了，然后服务端发起建立连接。这样服务端一直等待客户端连接（实际上客户端不会发起），造成资源浪费。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630403156876.png"></p>
+<p>三次握手的目的是建立可靠的通信信道，说到通讯，简单来说就是数据的发送与接收，而<strong>三次握手最主要的目的就是双方确认自己与对方的发送与接收是正常的</strong></p>
+<ol>
+<li>第一次握手，发送端：什么都确认不了；接收端：<strong>对方发送正常，自己接受正常</strong></li>
+<li>第二次握手，发送端：<strong>对方发送，接受正常，自己发送，接受正常</strong> ；接收端：对方发送正常，自己接受正常</li>
+<li>第三次握手，发送端：对方发送，接受正常，自己发送，接受正常；接收端：<strong>对方</strong>发送，<strong>接受正常</strong>，<strong>自己发送</strong>，接受正常</li>
+</ol>
+<h3 id="8-2-什么是半连接队列？"><a href="#8-2-什么是半连接队列？" class="headerlink" title="8.2  什么是半连接队列？"></a>8.2  什么是半连接队列？</h3><p>服务器第一次收到客户端的 SYN 之后，就会处于 SYN_RCVD 状态，此时双方还没有完全建立起连接，服务器会把此种状态下请求连接放在一个队列里，我们把这种队列称之为半连接队列。</p>
+<p>当然还有一个全连接队列，就是已经完成三次握手，建立起连接的就会放在全连接队列中。如果队列满了就有可能会出现丢包现象。</p>
+<p>这里在补充一点关于SYN-ACK 重传次数的问题：</p>
+<p>服务器发送完SYN-ACK包，如果未收到客户确认包，服务器进行首次重传，等待一段时间仍未收到客户确认包，进行第二次重传。如果重传次数超过系统规定的最大重传次数，系统将该连接信息从半连接队列中删除。</p>
+<p>注意，每次重传等待的时间不一定相同，一般会是指数增长，例如间隔时间为 1s，2s，4s，8s…</p>
+<h3 id="8-3-TCP三次握手中，最后一次回复丢失，会发生什么？"><a href="#8-3-TCP三次握手中，最后一次回复丢失，会发生什么？" class="headerlink" title="8.3 TCP三次握手中，最后一次回复丢失，会发生什么？"></a>8.3 TCP三次握手中，最后一次回复丢失，会发生什么？</h3><p>如果最后一次ACK在网络中丢失，那么<strong>Server端（服务端）该TCP连接的状态仍为SYN_RECV</strong>，并且<strong>根据 TCP的超时重传机制依次等待3秒、6秒、12秒后重新发送 SYN+ACK 包</strong>，以便 <strong>Client（客户端）重新发送ACK包</strong></p>
+<p><strong>如果重发指定次数后，仍然未收到ACK应答</strong>，那么一段时间后，<strong>Server（服务端）自动关闭这个连接</strong></p>
+<p><strong>但是Client（客户端）认为这个连接已经建立</strong>，如果Client（客户端）端向Server（服务端）发送数据，<strong>Server端（服务端）将以RST包（Reset，标示复位，用于异常的关闭连接）响应</strong>，此时，<strong>客户端知道第三次握手失败</strong></p>
+<h3 id="8-4-四次挥手"><a href="#8-4-四次挥手" class="headerlink" title="8.4 四次挥手"></a>8.4 四次挥手</h3><p>建立一个连接需要三次握手，而终止一个连接要经过四次挥手（也有将四次挥手叫做四次握手的）。这由TCP的半关闭（half-close）造成的。所谓的半关闭，其实就是TCP提供了连接的一端在结束它的发送后还能接收来自另一端数据的能力。</p>
+<p>TCP 的连接的拆除需要发送四个包，因此称为四次挥手(Four-way handshake)，客户端或服务器均可主动发起挥手动作。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630403557146.png"></p>
+<p>刚开始双方都处于 ESTABLISHED 状态，假如是客户端先发起关闭请求。四次挥手的过程如下：</p>
+<p><strong>第一次挥手：客户端发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于 FIN_WAIT1 状态。</strong></p>
+<p>即发出连接释放报文段（FIN=1，序号seq=u），并停止再发送数据，主动关闭TCP连接，进入FIN_WAIT1（终止等待1）状态，等待服务端的确认。</p>
+<p><strong>第二次挥手：服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序列号值 +1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT 状态。</strong></p>
+<p>即服务端收到连接释放报文段后即发出确认报文段（ACK=1，确认号ack=u+1，序号seq=v），服务端进入CLOSE_WAIT（关闭等待）状态，此时的TCP处于半关闭状态，客户端到服务端的连接释放。客户端收到服务端的确认后，进入FIN_WAIT2（终止等待2）状态，等待服务端发出的连接释放报文段。</p>
+<p><strong>第三次挥手：如果服务端也想断开连接了，和客户端的第一次挥手一样，发给 FIN 报文，且指定一个序列号。此时服务端处于 LAST_ACK 的状态。</strong></p>
+<p>即服务端没有要向客户端发出的数据，服务端发出连接释放报文段（FIN=1，ACK=1，序号seq=w，确认号ack=u+1），服务端进入LAST_ACK（最后确认）状态，等待客户端的确认。</p>
+<p><strong>第四次挥手：客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答，且把服务端的序列号值 +1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT 状态。需要过一阵子以确保服务端收到自己的 ACK 报文之后才会进入 CLOSED 状态，服务端收到 ACK 报文之后，就处于关闭连接了，处于 CLOSED 状态。</strong></p>
+<p>即客户端收到服务端的连接释放报文段后，对此发出确认报文段（ACK=1，seq=u+1，ack=w+1），客户端进入TIME_WAIT（时间等待）状态。此时TCP未释放掉，需要经过时间等待计时器设置的时间2MSL后，客户端才进入CLOSED状态。</p>
+<p>收到一个FIN只意味着在这一方向上没有数据流动。客户端执行主动关闭并进入TIME_WAIT是正常的，服务端通常执行被动关闭，不会进入TIME_WAIT状态。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1619077108410.png"></p>
+<p><strong>8.4 挥手为什么需要四次？</strong></p>
+<p>因为当服务端收到客户端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当服务端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉客户端，“你发的FIN报文我收到了”。只有等到我服务端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四次挥手。</p>
+<h3 id="8-5-为什么TCP挥手每两次中间有一个-FIN-WAIT2等待时间？"><a href="#8-5-为什么TCP挥手每两次中间有一个-FIN-WAIT2等待时间？" class="headerlink" title="8.5 为什么TCP挥手每两次中间有一个 FIN-WAIT2等待时间？"></a>8.5 为什么TCP挥手每两次中间有一个 FIN-WAIT2等待时间？</h3><p>主动关闭的一端调用完close以后（即发FIN给被动关闭的一端， 并且收到其对FIN的确认ACK）则进入FIN_WAIT_2状态。<strong>如果这个时候因为网络突然断掉、被动关闭的一端宕机等原因，导致主动关闭的一端不能收到被动关闭的一端发来的FIN（防止对端不发送关闭连接的FIN包给本端）</strong>，这个时候就需要FIN_WAIT_2定时器， 如果在该定时器超时的时候，还是没收到被动关闭一端发来的FIN，那么直接释放这个链接，进入CLOSE状态</p>
+<h3 id="8-6-为什么客户端最后还要等待2MSL？为什么还有个TIME-WAIT的时间等待？"><a href="#8-6-为什么客户端最后还要等待2MSL？为什么还有个TIME-WAIT的时间等待？" class="headerlink" title="8.6 为什么客户端最后还要等待2MSL？为什么还有个TIME-WAIT的时间等待？"></a>8.6 为什么客户端最后还要等待2MSL？为什么还有个TIME-WAIT的时间等待？</h3><p><strong>1.保证客户端发送的最后一个ACK报文能够到达服务器</strong>，因为这个ACK报文可能丢失，<strong>服务器已经发送了FIN+ACK报文，请求断开，客户端却没有回应，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文</strong>，并且会重启2MSL计时器。</p>
+<p>2.防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以<strong>使本连接持续的时间内所产生的所有报文段都从网络中消失，这样新的连接中不会出现旧连接的请求报文</strong>。</p>
+<p>2MSL，最大报文生存时间，一个MSL 30 秒，2MSL = 60s</p>
+<p>TIME_WAIT 等待 2 倍的 MSL，比较合理的解释是： 网络中可能存在来自发送方的数据包，当这些发送方的数据包被接收方处理后又会向对方发送响应，所以<strong>一来一回需要等待 2 倍的时间</strong>。</p>
+<p>比如如果被动关闭方没有收到断开连接的最后的 ACK 报文，就会触发超时重发 Fin 报文，另一方接收到 FIN 后，会重发 ACK 给被动关闭方， 一来一去正好 2 个 MSL。</p>
+<h2 id="9、MyISAM和InnoDB的区别"><a href="#9、MyISAM和InnoDB的区别" class="headerlink" title="9、MyISAM和InnoDB的区别"></a>9、MyISAM和InnoDB的区别</h2><p>1、 <strong>存储结构</strong></p>
+<p><strong>MyISAM：</strong>每个MyISAM在磁盘上存储成三个文件。分别为：<strong>表定义文件、数据文件、索引文件。</strong>第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。</p>
+<p><strong>InnoDB：</strong>所有的表都保存在同一个数据文件中（也可能是多个文件，或者是独立的表空间文件），InnoDB表的大小只受限于操作系统文件的大小，一般为2GB。</p>
+<p>2、 <strong>存储空间</strong></p>
+<p><strong>MyISAM：</strong> MyISAM支持支持三种不同的存储格式：静态表(默认，但是注意数据末尾不能有空格，会被去掉)、动态表、压缩表。当表在创建之后并导入数据之后，不会再进行修改操作，可以使用压缩表，极大的减少磁盘的空间占用。</p>
+<p><strong>InnoDB：</strong> 需要更多的内存和存储，它会在主内存中建立其专用的缓冲池用于高速缓冲数据和索引。</p>
+<p>3、 <strong>可移植性、备份及恢复</strong></p>
+<p><strong>MyISAM：</strong>数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</p>
+<p><strong>InnoDB：</strong>免费的方案可以是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</p>
+<p>4、 <strong>事务支持</strong></p>
+<p><strong>MyISAM：</strong>强调的是性能，每次查询具有原子性,其执行数度比InnoDB类型更快，但是不提供事务支持。</p>
+<p><strong>InnoDB：</strong>提供事务支持事务，外部键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。</p>
+<p>5、 <strong>AUTO_INCREMENT</strong> </p>
+<p><strong>MyISAM：</strong>可以和其他字段一起建立联合索引。引擎的自动增长列必须是索引，如果是组合索引，自动增长可以不是第一列，他可以根据前面几列进行排序后递增。</p>
+<p><strong>InnoDB：</strong>InnoDB中必须包含只有该字段的索引。引擎的自动增长列必须是索引，如果是组合索引也必须是组合索引的第一列。</p>
+<p>6、 <strong>表锁差异</strong></p>
+<p><strong>MyISAM：</strong> 只支持表级锁，用户在操作myisam表时，select，update，delete，insert语句都会给表自动加锁，如果加锁以后的表满足insert并发的情况下，可以在表的尾部插入新的数据。</p>
+<p><strong>InnoDB：</strong> 支持事务和行级锁，是innodb的最大特色。行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</p>
+<p>7、 <strong>全文索引</strong></p>
+<p><strong>MyISAM：</strong>支持 FULLTEXT类型的全文索引</p>
+<p><strong>InnoDB：</strong>不支持FULLTEXT类型的全文索引，但是innodb可以使用sphinx插件支持全文索引，并且效果更好。</p>
+<p>8、<strong>表主键</strong></p>
+<p><strong>MyISAM：</strong>允许没有任何索引和主键的表存在，索引都是保存行的地址。</p>
+<p><strong>InnoDB：</strong>如果没有设定主键或者非空唯一索引，就会自动生成一个6字节的主键(用户不可见)，数据是主索引的一部分，附加索引保存的是主索引的值。</p>
+<p>9、<strong>表的具体行数</strong></p>
+<p><strong>MyISAM：</strong> 保存有表的总行数，如果select count(<em>) from table;会直接取出出该值。</em></p>
+<p><strong>InnoDB：</strong> 没有保存表的总行数，如果使用select count(*) from table；就会遍历整个表，消耗相当大，但是在加了wehre条件后，myisam和innodb处理的方式都一样。</p>
+<p>10、<strong>CRUD操作</strong></p>
+<p><strong>MyISAM：</strong>如果执行大量的SELECT，MyISAM是更好的选择。</p>
+<p><strong>InnoDB：</strong>如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。</p>
+<p>11、 外键</p>
+<p><strong>MyISAM：</strong>不支持</p>
+<p><strong>InnoDB：</strong>支持</p>
+<h2 id="10-B-tree和B-tree"><a href="#10-B-tree和B-tree" class="headerlink" title="10 B-tree和B+tree"></a>10 B-tree和B+tree</h2><p>B树也称B-树,它是一棵多路平衡查找树，下面我们来看看B树的定义，假设有一棵m阶B树，下面定义中不要弄混淆了节点中关键字个数与孩子树的区别，注意B树与B+树中，根节点的儿子数为[2,m]，非根节点非叶子节点的儿子数最多为m，（其中m均&gt;2）。</p>
+<ul>
+<li>每个节点最多有m-1个关键字（可以存有的键值对）。</li>
+<li>根节点最少可以只有1个关键字。</li>
+<li>非根节点至少有m/2个关键字。每个节点中的关键字都按照从小到大的顺序排列，每个关键字的左子树中的所有关键字都小于它，而右子树中的所有关键字都大于它。</li>
+<li>所有叶子节点都位于同一层，或者说根节点到每个叶子节点的长度都相同。</li>
+<li>每个节点都存有索引和数据，也就是对应的key和value。</li>
+</ul>
+<p>所以，根节点的<strong>关键字</strong>数量范围：<code>1 &lt;= k &lt;= m-1</code>，非根节点的<strong>关键字</strong>数量范围：<code>m/2 &lt;= k &lt;= m-1</code>。</p>
+<p>另外，我们需要注意一个概念，描述一棵B树时需要指定它的阶数，阶数表示了一个节点最多有多少个孩子节点，一般用字母m表示阶数。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629014544465.png"></p>
+<p>B+树其实和B树是非常相似的，我们首先看看<strong>相同点</strong>。</p>
+<ul>
+<li>根节点至少一个元素</li>
+<li>非根节点元素范围：m/2 &lt;= k &lt;= m-1</li>
+</ul>
+<p><strong>不同点</strong>。</p>
+<ul>
+<li>B+树有两种类型的节点：内部结点（也称索引结点）和叶子结点。内部节点就是非叶子节点，内部节点不存储数据，只存储索引，数据都存储在叶子节点。</li>
+<li>内部结点中的key都按照从小到大的顺序排列，对于内部结点中的一个key，左树中的所有key都小于它，右子树中的key都大于等于它。叶子结点中的记录也按照key的大小排列。</li>
+<li>每个叶子结点都存有相邻叶子结点的指针，叶子结点本身依关键字的大小自小而大顺序链接。</li>
+<li>父节点存有右孩子的第一个元素的索引。</li>
+</ul>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629014630966.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1629014675699.png"></p>
+<h1 id="JavaSE部分"><a href="#JavaSE部分" class="headerlink" title="JavaSE部分"></a>JavaSE部分</h1><h2 id="1-1、java基础（一）"><a href="#1-1、java基础（一）" class="headerlink" title="1.1、java基础（一）"></a>1.1、java基础（一）</h2><h3 id="1、请你讲讲-amp-和-amp-amp-的区别？"><a href="#1、请你讲讲-amp-和-amp-amp-的区别？" class="headerlink" title="1、请你讲讲&amp;和&amp;&amp;的区别？"></a>1、请你讲讲&amp;和&amp;&amp;的区别？</h3><p><strong>参考回答：</strong></p>
+<p>&amp;运算符有两种用法：(1)按位与；(2)逻辑与。&amp;&amp;运算符是短路与运算。</p>
+<p>逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(“”)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</p>
+<h3 id="2、为什么重写equals-方法时还要重写hashcode-方法？"><a href="#2、为什么重写equals-方法时还要重写hashcode-方法？" class="headerlink" title="2、为什么重写equals()方法时还要重写hashcode()方法？"></a>2、为什么重写equals()方法时还要重写hashcode()方法？</h3><p>首先我们知道hashmap的key是可以直接使用String来充当的，而如果我们想用对象来作为key，那么我们必须重写这个对象的hashCode方法以及equals方法。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630498361173.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630498438890.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630499162315.png"></p>
+<h3 id="3、请你讲讲Java里面的final关键字是怎么用的？"><a href="#3、请你讲讲Java里面的final关键字是怎么用的？" class="headerlink" title="3、请你讲讲Java里面的final关键字是怎么用的？"></a>3、请你讲讲Java里面的final关键字是怎么用的？</h3><p><strong>参考回答：</strong></p>
+<p>当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。</p>
+<p>“使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改它的含义；第二个原因是效率。在早期的Java实现版本中，会将final方法转为内嵌调用。但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升。在最近的Java版本中，不需要使用final方法进行这些优化了。“</p>
+<p>对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。</p>
+<h3 id="4、请你谈谈关于Synchronized和lock"><a href="#4、请你谈谈关于Synchronized和lock" class="headerlink" title="4、请你谈谈关于Synchronized和lock"></a>4、请你谈谈关于Synchronized和lock</h3><p><strong>参考回答：</strong></p>
+<p>synchronized是Java的关键字，当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。</p>
+<p>Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。</p>
+<h3 id="5、请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？"><a href="#5、请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？" class="headerlink" title="5、请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？"></a>5、请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？</h3><p><strong>参考回答：</strong></p>
+<p>synchronized修饰静态方法以及同步代码块的synchronized (类.class)用法锁的是类，线程想要执行对应同步代码，需要获得类锁。</p>
+<p>synchronized修饰成员方法，线程获取的是当前调用该方法的对象实例的对象锁。</p>
+<h3 id="6、请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递"><a href="#6、请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递" class="headerlink" title="6、请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?"></a>6、请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</h3><p><strong>参考回答：</strong></p>
+<p>是值传递。Java 编程语言只有值传递参数。当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。对象的内容可以在被调用的方法中改变，但对象的引用是永远不会改变的。</p>
+<h3 id="7、请说明一下final-finally-finalize的区别。"><a href="#7、请说明一下final-finally-finalize的区别。" class="headerlink" title="7、请说明一下final, finally, finalize的区别。"></a>7、请说明一下final, finally, finalize的区别。</h3><p><strong>参考回答：</strong></p>
+<p>final 用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。<br>finally是异常处理语句结构的一部分，表示总是执行。<br>finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。</p>
+<h3 id="8、抽象类与接口的区别"><a href="#8、抽象类与接口的区别" class="headerlink" title="8、抽象类与接口的区别"></a>8、抽象类与接口的区别</h3><p><strong>相同点</strong></p>
+<p>（1）都不能被实例化 （2）接口的实现类或抽象类的子类都只有实现了接口或抽象类中的方法后才能实例化。</p>
+<p><strong>不同点</strong></p>
+<p>（1）接口只有定义，不能有方法的实现，java 1.8中可以定义default方法体，而抽象类可以有定义与实现，方法可在抽象类中实现。</p>
+<p>（2）实现接口的关键字为implements，继承抽象类的关键字为extends。一个类可以实现多个接口，但一个类只能继承一个抽象类。所以，使用接口可以间接地实现多重继承。</p>
+<p>（3）接口强调特定功能的实现，而抽象类强调所属关系。</p>
+<p>（4）接口成员变量默认为public static final，必须赋初值，不能被修改；其所有的成员方法都是public、abstract的。抽象类中成员变量默认default，可在子类中被重新定义，也可被重新赋值；抽象方法被abstract修饰，不能被private、static、synchronized和native等修饰，必须以分号结尾，不带花括号。</p>
+<h3 id="9、请说明Comparable和Comparator接口的作用以及它们的区别。"><a href="#9、请说明Comparable和Comparator接口的作用以及它们的区别。" class="headerlink" title="9、请说明Comparable和Comparator接口的作用以及它们的区别。"></a>9、请说明Comparable和Comparator接口的作用以及它们的区别。</h3><p><strong>参考回答：</strong></p>
+<p>Java提供了只包含一个compareTo()方法的Comparable接口，Comparable出自<em>java.lang</em>包。这个方法可以个给两个对象排序。具体来说，它返回负数，0，正数来表明输入对象小于，等于，大于已经存在的对象。<br>Java提供了包含compare()和equals()两个方法的Comparator接口，Comparator接口出自<em>java.util</em>包。compare()方法用来给两个输入参数排序，返回负数，0，正数表明第一个参数是小于，等于，大于第二个参数。equals()方法需要一个对象作为参数，它用来决定输入参数是否和comparator相等。只有当输入参数也是一个comparator并且输入参数和当前comparator的排序结果是相同的时候，这个方法才返回true。</p>
+<p>Comparable是排序接口，若一个类实现了Comparable接口，就意味着“该类支持排序”。而Comparator是比较器，我们若需要控制某个类的次序，可以建立一个“该类的比较器”来进行排序。Comparable相当于“内部比较器”，而Comparator相当于“外部比较器”。</p>
+<p> 两种方法各有优劣， 用Comparable 简单， 只要实现Comparable 接口的对象直接就成为一个可以比较的对象，但是需要修改源代码。 用Comparator 的好处是不需要修改源代码， 而是另外实现一个比较器， 当某个自定义的对象需要作比较的时候，把比较器和对象一起传递过去就可以比大小了， 并且在Comparator 里面用户可以自己实现复杂的可以通用的逻辑，使其可以匹配一些比较简单的对象，那样就可以节省很多重复劳动了。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630546985753.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630546998776.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630547015727.png"></p>
+<h3 id="10、请你谈谈如何通过反射创建对象？"><a href="#10、请你谈谈如何通过反射创建对象？" class="headerlink" title="10、请你谈谈如何通过反射创建对象？"></a>10、请你谈谈如何通过反射创建对象？</h3><p><strong>参考回答：</strong></p>
+<p>- 方法1：通过类对象调用newInstance()方法，例如：String.class.newInstance()</p>
+<ul>
+<li>方法2：通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器（Constructor）对象并调用其newInstance()方法创建对象，例如：String.class.getConstructor(String.class).newInstance(“Hello”);</li>
+</ul>
+<h3 id="11、泛型"><a href="#11、泛型" class="headerlink" title="11、泛型"></a>11、泛型</h3><p>泛型可以解决数据类型的安全问题，其主要原理是在类声明时通过一个标识标识类中某个属性的类型或者是某个方法的返回值及参数类型。这样在类声明或实例化时只要指定好需要的类型即可。如格式10-1和10-2所示：</p>
+<p>在引用传递中，在泛型操作中也可以设置一个泛型对象的范围上限和范围下限。范围上限使用extends关键字声明，表示参数化的类型可能是所指定的类型或是此类型的子类，而范围下限使用super进行声明，表示参数化的类型可能是所指定的类型，或者是此类型的父类型，或是Object类，具体格式如下：</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1616400362887.png"></p>
+<ol>
+<li><p>泛型的上限</p>
+<p>现在假设一个方法中能接受的泛型对象只能是数字（Byte、Short 、Long、 Integer、 Float、Double）类型，此时在定义方法参数接收对象时，就必须指定泛型的上限。因为所有的数字包装类都是Number类型的子类，所以代码编写如下。</p>
+</li>
+<li><p>泛型的下限</p>
+<p>当使用的泛型只能在本类及其父类类型上应用时，就必须使用泛型的范围下限进行配置。</p>
+</li>
+</ol>
+<h3 id="12、请你谈谈StringBuffer和StringBuilder有什么区别，底层实现上呢？"><a href="#12、请你谈谈StringBuffer和StringBuilder有什么区别，底层实现上呢？" class="headerlink" title="12、请你谈谈StringBuffer和StringBuilder有什么区别，底层实现上呢？"></a>12、请你谈谈StringBuffer和StringBuilder有什么区别，底层实现上呢？</h3><p><strong>参考回答：</strong></p>
+<p>StringBuffer线程安全，StringBuilder线程不安全，底层实现上的话，StringBuffer其实就是比StringBuilder多了Synchronized修饰符。</p>
+<h3 id="13、请说明”static”关键字是什么意思？Java中是否可以覆盖-override-一个private或者是static的方法？"><a href="#13、请说明”static”关键字是什么意思？Java中是否可以覆盖-override-一个private或者是static的方法？" class="headerlink" title="13、请说明”static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？"></a>13、请说明”static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？</h3><p> <strong>参考回答：</strong></p>
+<p>“static”关键字表明一个成员变量或者是成员方法可以在没有所属的类的实例变量的情况下被访问。<br>Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态绑定的，而static方法是编译时静态绑定的。static方法跟类的任何实例都不相关，所以概念上不适用。</p>
+<h3 id="14、请列举你所知道的Object类的方法并简要说明。"><a href="#14、请列举你所知道的Object类的方法并简要说明。" class="headerlink" title="14、请列举你所知道的Object类的方法并简要说明。"></a>14、请列举你所知道的Object类的方法并简要说明。</h3><p> <strong>参考回答：</strong></p>
+<p>Object()默认构造方法。</p>
+<p>clone() 创建并返回此对象的一个副本。</p>
+<p>equals(Object obj) 指示某个其他对象是否与此对象“相等”。</p>
+<p>finalize()当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</p>
+<p>getClass()返回一个对象的运行时类。</p>
+<p>hashCode()返回该对象的哈希码值。 </p>
+<p>notify()唤醒在此对象监视器上等待的单个线程。 </p>
+<p>notifyAll()唤醒在此对象监视器上等待的所有线程。</p>
+<p>toString()返回该对象的字符串表示。</p>
+<p>wait()导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。</p>
+<p>wait(long timeout)导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者超过指定的时间量。</p>
+<p>wait(long timeout, int nanos) 导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量。</p>
+<h3 id="15、请解释一下String为什么不可变？"><a href="#15、请解释一下String为什么不可变？" class="headerlink" title="15、请解释一下String为什么不可变？"></a>15、请解释一下String为什么不可变？</h3><p> <strong>参考回答：</strong></p>
+<p>不可变对象是指一个对象的状态在对象被创建之后就不再变化。不可改变的意思就是说：不能改变对象内的成员变量，包括基本数据类型的值不能改变，引用类型的变量不能指向其他的对象，引用类型指向的对象的状态也不能改变。</p>
+<p>String 不可变是因为在 JDK 中 String 类被声明为一个 final 类，且类内部的 value 字节数组也是 final 的，value是String封装的数组，value中的所有字符都是属于String这个对象的。由于value是private的，并且没有提供setValue等公共方法来修改这些值，所以在String类的外部无法修改String。也就是说一旦初始化就不能修改。此外，value变量是final的， 也就是说在String类内部，一旦这个值初始化了，value引用类型变量所引用的地址不会改变，即一直引用同一个对象。所以可以说String对象是不可变对象。</p>
+<h3 id="16、请你解释一下hashMap具体如何实现的？"><a href="#16、请你解释一下hashMap具体如何实现的？" class="headerlink" title="16、请你解释一下hashMap具体如何实现的？"></a>16、请你解释一下hashMap具体如何实现的？</h3><p> <strong>参考回答：</strong></p>
+<p>Hashmap基于数组实现的，通过对key的hashcode &amp; 数组的长度得到在数组中位置，如当前数组有元素，则数组当前元素next指向要插入的元素，这样来解决hash冲突的，形成了拉链式的结构。put时在多线程情况下，会形成环从而导致死循环。数组长度一般是2n，从0开始编号，所以hashcode &amp; （2n-1），<strong>（2n-1）每一位都是1，这样会让散列均匀。</strong>需要注意的是，HashMap在JDK1.8的版本中引入了红黑树结构做优化，当链表元素个数大于等于8时，链表转换成树结构；若桶中链表元素个数小于等于6时，树结构还原成链表。因为红黑树的平均查找长度是log(n)，长度为8的时候，平均查找长度为3，如果继续使用链表，平均查找长度为8/2=4，这才有转换为树的必要。链表长度如果是小于等于6，6/2=3，虽然速度也很快的，但是转化为树结构和生成树的时间并不会太短。还有选择6和8，中间有个差值7可以有效防止链表和树频繁转换。假设一下，如果设计成链表个数超过8则链表转换成树结构，链表个数小于8则树结构转换成链表，如果一个HashMap不停的插入、删除元素，链表个数在8左右徘徊，就会频繁的发生树转链表、链表转树，效率会很低。</p>
+<h3 id="17、1-7和1-8中concurrentHashmap计算size的区别"><a href="#17、1-7和1-8中concurrentHashmap计算size的区别" class="headerlink" title="17、1.7和1.8中concurrentHashmap计算size的区别"></a>17、1.7和1.8中concurrentHashmap计算size的区别</h3><p>进行第一遍遍历segments数组，将每个segemnt的count加起来作为总数，期间把每个segment的modCount加起来sum作为结果是否被修改的判断依据。<br>这里需要提一下modCount，这个是当segment有任何操作都会进行一次增量操作，代表的是对Segment中元素的数量造成影响的操作的次数，这个值只增不减！！！！只增不减很重要，这样就不会出现一个segment+1，导致modcount+1,而另一个segment-1，即modcount-1 ,从而在统计所有的时候modcount没有变化。</p>
+<p>2.size操作就是遍历了两次所有的Segments，每次记录Segment的modCount值，然后将两次的modCount进行比较，如果相同，则表示期间没有发生过写入操作，就将原先遍历的结果返回，如果不相同，则把这个过程再重复做一次，如果再不相同，则就需要将所有的Segment都锁住，然后一个一个遍历了。</p>
+<p>3.如果经判断发现两次统计出的modCount并不一致，那就如上所说，要重新启用全部segment加锁的方式来进行count的获取和统计了，这样在此期间每个segement都被锁住，无法进行其他操作，统计出的count自然很准确。</p>
+<p>而之所以之所以要先不加锁进行判断，道理很明显，就是不希望因为size操作获取这么多锁，因为获取锁不光占用资源，也会影响其他线程对ConcurrentHash的使用，影响并发情况下程序执行的效率。使用锁要谨慎！</p>
+<p>JDK1.8 的实现已经摒弃了 Segment 的概念，而是直接用 Node 数组 + 链表 + 红黑树的数据结构来实现，并发控制使用 Synchronized 和 CAS 来操作，整个看起来就像是优化过且线程安全的 HashMap，虽然在 JDK1.8 中还能看到 Segment 的数据结构，但是已经简化了属性，只是为了兼容旧版本。</p>
+<p>jdk1.8中的size()方法，最大返回 int 最大值，但是这个 Map 的长度是有可能超过 int 最大值的，所以 JDK 8 增了 mappingCount 方法。代码如下：</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630567636061.png"></p>
+<p>sumCount()方法是核心<img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630568035240.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630568059595.png"></p>
+<p>但是如果并发导致 CAS 失败了，怎么办呢？使用 counterCells。如果上面 CAS 失败了，在 fullAddCount 方法中，会继续死循环操作，直到成功。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1630568151515.png"></p>
+<p><strong>总结</strong><br>        JDK 8 推荐使用mappingCount 方法，因为这个方法的返回值是 long 类型，不会因为 size 方法是 int 类型限制最大值（size 方法是接口定义的，不能修改）。</p>
+<p>在没有并发的情况下，使用一个 baseCount volatile 变量就足够了，当并发的时候，CAS 修改 baseCount 失败后，就会使用 CounterCell 类了，会创建一个这个对象，通常对象的 volatile value 属性是 1。在计算 size 的时候，会将 baseCount 和 CounterCell 数组中的元素的 value 累加，得到总的大小，但这个数字仍旧可能是不准确的。</p>
+<p>还有一个需要注意的地方就是，这个 CounterCell 类使用了 @sun.misc.Contended 注解标识，这个注解是防止伪共享的。是 1.8 新增的。使用时，需要加上 -XX:-RestrictContended 参数。</p>
+<h3 id="18、请你讲讲-Statement-和-PreparedStatement-的区别？哪个性能更好？"><a href="#18、请你讲讲-Statement-和-PreparedStatement-的区别？哪个性能更好？" class="headerlink" title="18、请你讲讲 Statement 和 PreparedStatement 的区别？哪个性能更好？"></a>18、请你讲讲 Statement 和 PreparedStatement 的区别？哪个性能更好？</h3><p><strong>参考回答：</strong></p>
+<p>与Statement相比，①PreparedStatement接口代表预编译的语句，它主要的优势在于可以减少SQL的编译错误并增加SQL的安全性（减少SQL注射攻击的可能性）；②PreparedStatement中的SQL语句是可以带参数的，避免了用字符串连接拼接SQL语句的麻烦和不安全；③当批量处理SQL或频繁执行相同的查询时，PreparedStatement有明显的性能上的优势，由于数据库可以将编译优化后的SQL语句缓存起来，下次执行相同结构的语句时就会很快（不用再次编译和生成执行计划）。</p>
+<h3 id="19、Bean的生命周期"><a href="#19、Bean的生命周期" class="headerlink" title="19、Bean的生命周期"></a>19、Bean的生命周期</h3><p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1631703084195.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1631702973595.png"></p>
+<h3 id="20、双亲委派机制"><a href="#20、双亲委派机制" class="headerlink" title="20、双亲委派机制"></a>20、双亲委派机制</h3><p>在介绍双亲委派机制的时候，不得不提ClassLoader（类加载器）。说ClassLoader之前，我们得先了解下Java的基本知识。<br>        Java是运行在Java的虚拟机(JVM)中的，但是它是如何运行在JVM中了呢？我们在IDE中编写的Java源代码被编译器编译成.class的字节码文件。然后由我们得ClassLoader负责将这些class文件给加载到JVM中去执行。<br>  JVM中提供了三层的ClassLoader：</p>
+<p>Bootstrap classLoader:主要负责加载核心的类库(java.lang.*等)，构造ExtClassLoader和APPClassLoader。</p>
+<p>ExtClassLoader：主要负责加载jre/lib/ext目录下的一些扩展的jar。</p>
+<p>AppClassLoader：主要负责加载应用程序的主函数类</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1632279383667.png"></p>
+<p>从上图中我们就更容易理解了，当一个Hello.class这样的文件要被加载时。不考虑我们自定义类加载器，首先会在AppClassLoader中检查是否加载过，如果有那就无需再加载了。如果没有，那么会拿到父加载器，然后调用父加载器的loadClass方法。父类中同理也会先检查自己是否已经加载过，如果没有再往上。注意这个类似递归的过程，直到到达Bootstrap classLoader之前，都是在检查是否加载过，并不会选择自己去加载。直到BootstrapClassLoader，已经没有父加载器了，这时候开始考虑自己是否能加载了，如果自己无法加载，会下沉到子加载器去加载，一直到最底层，如果没有任何加载器能加载，就会抛出ClassNotFoundException。那么有人就有下面这种疑问了？</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1632279410098.png"></p>
+<h3 id="21、jvm内存模型"><a href="#21、jvm内存模型" class="headerlink" title="21、jvm内存模型"></a>21、jvm内存模型</h3><p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1632475748782.png"></p>
+<p><strong>jvm 垃圾回收机制</strong></p>
+<p>GC Roots包括哪些？</p>
+<blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">a<span class="token punctuation">.</span> java虚拟机栈中的引用的对象。 
+b<span class="token punctuation">.</span>方法区中的类静态属性引用的对象。 （一般指被<span class="token keyword">static</span>修饰的对象，加载类的时候就加载到内存中。）
+c<span class="token punctuation">.</span>方法区中的常量引用的对象。 
+d<span class="token punctuation">.</span>本地方法栈中的JNI（<span class="token keyword">native</span>方法）引用的对象<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="java内存回收机制"><a href="#java内存回收机制" class="headerlink" title="java内存回收机制"></a>java内存回收机制</h4><blockquote>
+<p>垃圾回收机制是Java语言的一个显著特点，其可以有效的防止内存泄露、保证内存的有效使用，从而使得Java程序在编写程序的死后不需要考虑内存管理的问题。</p>
+<p>程序运行时，内存空间是有限的，那么如何及时的把不再使用的对象清除将内存释放出来，这就是GC要做的事。</p>
+<p>需要进行回收的对象就是已经没有存活的对象，判断一个对象是否存活常用的有两种办法：引用计数和可达分析。</p>
+<p>（1）引用计数：每个对象有一个引用计数属性，新增一个引用时计数加1，引用释放时计数减1，计数为0时可以回收。此方法简单，无法解决对象相互循环引用的问题。</p>
+<p>（2）可达性分析（Reachability Analysis）：从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。不可达对象。</p>
+<blockquote>
+<p>在Java语言中，GC Roots包括：</p>
+<p>虚拟机栈中引用的对象。</p>
+<p>方法区中类静态属性实体引用的对象。</p>
+<p>方法区中常量引用的对象。</p>
+<p>本地方法栈中JNI引用的对象。</p>
+</blockquote>
+<p><strong>静态变量回收</strong></p>
+<p>一个对象会不会被回收，主要看垃圾回收器引用遍历的时候能不能访问到这个引用，如果访问不到，则将被回收，如果能够访问到，则不能回收。如果一个类的 class文件被装载，那么它的静态成员变量便会被初始化，除非unloader这个类的class对象，他的静态成员变量是不会被gc回收的。</p>
+</blockquote>
+<h4 id="GC四大内存回收算法"><a href="#GC四大内存回收算法" class="headerlink" title="GC四大内存回收算法"></a>GC四大内存回收算法</h4><blockquote>
+<p><strong>1、标记清除法</strong></p>
+<p>​    根据被标记的垃圾对象，逐个进行清理。效率高，但是清理回收后，导致内存不连续，形成内存碎片。此时如果有新对象需要消耗更大的内存，虽然总空闲内存足够，由于内存不连续，会导致创建失败。为了解决这个缺陷，故而衍生了下面的复制法。</p>
+<p><strong>2、复制法</strong></p>
+<p>将可用的内存按容量划分为大小相等的两块（from，to）。每次把没有被标志的，即幸存的对象复制到一边去（to），然后把（from）这块内存格式化的清理。这样子就能保证被清理的内存总是连续可用的。然而，每次只是用其中一块（总有一块是空的【to区域】），造成了内存的使用率折半。<br>针对内存使用率问题底下，复制算法又继续衍生出下面的不均分的三块内存区，其中Eden区占据最大</p>
+<p><strong>3、标记整理法</strong></p>
+<p>​    把被标记的垃圾对象移动到内存的末端，统一回收。标记整理算法主要是针对Survivor区内存回收的，它的“标记”过程和标记-清除算法一致，只是后面并不是直接对可回收对象进行整理，而是让所有垃圾对象都向末端移动，然后直接清理掉端边界意外的内存。由于标记后继续整理，可以很明显的看出未使用的地址空间都是连续的，不会产生内存碎片。而且不需要复制幸存对象，针对Survivor区，大量对象都是幸存的，可以有效避免重复的复制工作导致性能的浪费。</p>
+<p><strong>4、分代收集法</strong></p>
+<p>​    根据对象的存活周期的不同而将内存分为几块，分别为新生代、老年代和永久代。</p>
+<p>​    新生代：朝生夕灭的对象（例如：方法的局部变量引用的对象等）。</p>
+<p>​    老年代：存活得比较久，但还是要死的对象（例如：缓存对象、单例对象等）。</p>
+<p>​    永久代：对象生成后几乎不灭的对象（例如：加载过的类信息）。</p>
+<p>新生代：采用复制算法，新生代对象一般存活率较低，因此可以不使用50%的内存作为空闲，一般的，使用两块10%的内存作为空闲和活动区间，而另外80%的内存，则是用来给新建对象分配内存的。一旦发生GC，将10%的活动区间与另外80%中存活的对象转移到10%的空闲区间，接下来，将之前90%的内存全部释放，以此类推，</p>
+<p>老年代：老年代中使用“标记-清除”或者“标记-整理”算法进行垃圾回收，回收次数相对较少，每次回收时间比较长。</p>
+<p>永久代指的是虚拟机内存中的方法区，永久代垃圾回收比较少，效率也比较低，但也必须进行垃圾回收，否则永久代内存不够用时仍然会抛出OutOfMemoryError异常。永久代也使用“标记-清除”或者“标记-整理”算法进行垃圾回收</p>
+<p>​    </p>
+</blockquote>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1632476169619.png"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/1632477122579.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">neo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2021/12/28/mian-shi-bi-ji-1/">http://example.com/2021/12/28/mian-shi-bi-ji-1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">neo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">编程</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">面试笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/12/28/duo-xian-cheng-xiang-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="多线程详解">
+                        
+                        <span class="card-title">多线程详解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    编程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="chip bg-color">多线程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/28/suan-fa-shi-li/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="算法示例">
+                        
+                        <span class="card-title">算法示例</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95%E4%BE%8B%E9%A2%98/">
+                        <span class="chip bg-color">算法例题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: neo&#39;s blog<br />'
+            + '文章作者: neo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="7189324795"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">neo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/liangbingtao" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1607247596@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1607247596" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1607247596" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
