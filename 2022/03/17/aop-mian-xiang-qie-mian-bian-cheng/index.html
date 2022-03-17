@@ -4,25 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="动态规划算法, neo&#39;s blog">
-    <meta name="description" content="动态规划动态规划题特点
-科技公司面试必考
-
-题目类型多，没有固定模板
-
-难度中上
-
-必须掌握
-
-时间复杂度比递归好很多
-
-
-什么题目可以用动态规划来解
-计数：如：有多少种方式
-
-求最值：如：最长上升子序列，最大数字和
-
-存在性：如：能不能选">
+    <meta name="keywords" content="AOP面向切面编程, neo&#39;s blog">
+    <meta name="description" content="AOP面向切面编程1  不使用AOP的开发方式Step1：项目aop_leadin1
+​    先定义好接口与一个实现类，该实现类中除了要实现接口中的方法外，还要再写两个非业务方法。非业务方法也称为交叉业务逻辑：​         ➢ do">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -34,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>动态规划算法 | neo&#39;s blog</title>
+    <title>AOP面向切面编程 | neo&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -307,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">动态规划算法</h1>
+                    <h1 class="description center-align post-title">AOP面向切面编程</h1>
                 </div>
             </div>
         </div>
@@ -428,12 +412,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/AOP/">
+                                <span class="chip bg-color">AOP</span>
                             </a>
                         
-                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                <span class="chip bg-color">动态规划</span>
+                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">面向切面编程</span>
                             </a>
                         
                     </div>
@@ -444,8 +428,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                编程
                             </a>
                         
                     </div>
@@ -457,7 +441,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-28
+                    2022-03-17
                 </div>
                 
 
@@ -466,14 +450,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
 
@@ -496,174 +480,159 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="动态规划题特点"><a href="#动态规划题特点" class="headerlink" title="动态规划题特点"></a><strong>动态规划题特点</strong></h2><ol>
-<li><p>科技公司面试必考</p>
+                <h1 id="AOP面向切面编程"><a href="#AOP面向切面编程" class="headerlink" title="AOP面向切面编程"></a>AOP面向切面编程</h1><h2 id="1-不使用AOP的开发方式"><a href="#1-不使用AOP的开发方式" class="headerlink" title="1  不使用AOP的开发方式"></a>1  不使用AOP的开发方式</h2><p><strong>Step1：项目aop_leadin1</strong></p>
+<p>​    先定义好接口与一个实现类，该实现类中除了要实现接口中的方法外，还要再写两个非业务方法。非业务方法也称为交叉业务逻辑：<br>​         ➢ doTransaction()：用于事务处理<br>​         ➢ doLog()：用于日志处理<br> 然后，再使接口方法调用它们。接口方法也称为主业务逻辑。</p>
+<p>接口：  </p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171952557.png" alt="image-20220317195241372"></p>
+<p><strong>Step2： 项目 aop_leadin2</strong>  </p>
+<p>​    当然，也可以有另一种解决方案：将这些交叉业务逻辑代码放到专门的工具类或处理类中，由主业务逻辑调用。  </p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171953342.png" alt="image-20220317195331218"></p>
+<p><strong>Step3： 项目 aop_leadin3</strong></p>
+<p>​        以上的解决方案，还是存在弊端：交叉业务与主业务深度耦合在一起。当交叉业务逻辑较多时，在主业务代码中会出现大量的交叉业务逻辑代码调用语句，大大影响了主业务逻辑的可读性，降低了代码的可维护性，同时也增加了开发难度。<br>       所以，可以采用动态代理方式。在不修改主业务逻辑的前提下，扩展和增强其功能。功能增强：  </p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171954943.png" alt="image-20220317195447827"></p>
+<h2 id="2-AOP简介"><a href="#2-AOP简介" class="headerlink" title="2  AOP简介"></a>2  AOP简介</h2><p>​        AOP（Aspect Orient Programming），面向切面编程。 面向切面编程是从动态角度考虑程序运行过程。<br>​        AOP 底层，就是采用动态代理模式实现的。采用了两种代理： ==JDK 的动态代理==，与 ==CGLIB的动态代理==。  </p>
+<p>​        AOP 为 Aspect Oriented Programming 的缩写，意为：面向切面编程， 可通过运行期动态代理实现程序功能的统一维护的一种技术。 AOP 是 Spring 框架中的一个重要内容。利用 AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<p>​        面向切面编程，就是将交叉业务逻辑封装成切面，利用 AOP 容器的功能将切面织入到主业务逻辑中。所谓交叉业务逻辑是指，通用的、与主业务逻辑无关的代码，如安全检查、事务、日志、缓存等。<br>​        若不使用 AOP，则会出现代码纠缠，即交叉业务逻辑与主业务逻辑混合在一起。这样，会使主业务逻辑变的混杂不清。<br>​        例如，转账，在真正转账业务逻辑前后，需要权限控制、日志记录、加载事务、结束事务等交叉业务逻辑，而这些业务逻辑与主业务逻辑间并无直接关系。但，它们的代码量所占比重能达到总代码量的一半甚至还多。它们的存在，不仅产生了大量的“冗余”代码，还大大干扰了主业务逻辑—转账。  </p>
+<h2 id="3-面向切面编程的好处"><a href="#3-面向切面编程的好处" class="headerlink" title="3 面向切面编程的好处"></a>3 面向切面编程的好处</h2><ol>
+<li>减少重复</li>
+<li>专注业务</li>
+</ol>
+<p>注意：面向切面编程只是面向对象编程的一种补充。</p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171959336.png" alt="image-20220317195942260"></p>
+<h2 id="4-AOP编程术语"><a href="#4-AOP编程术语" class="headerlink" title="4  AOP编程术语"></a>4  AOP编程术语</h2><ol>
+<li><p>切面（Aspect）</p>
+<p>切面泛指交叉业务逻辑。上例中的事务处理、日志处理就可以理解为切面。常用的切面是通知（Advice）。实际就是对主业务逻辑的一种增强。  </p>
 </li>
-<li><p>题目类型多，没有固定模板</p>
+<li><p>连接点（JoinPoint）  </p>
+<p>连接点指可以被切面织入的具体方法。通常业务接口中的方法均为连接点。  </p>
 </li>
-<li><p>难度中上</p>
+<li><p>切入点（Pointcut）  </p>
+<p>切入点指声明的一个或多个连接点的集合。通过切入点指定一组方法。<br>被标记为 final 的方法是不能作为连接点与切入点的。因为最终的是不能被修改的，不能被增强的。  </p>
 </li>
-<li><p>必须掌握</p>
+<li><p>目标对象（Target）  </p>
+<p>目 标 对 象 指 将 要 被 增 强 的 对 象 。 即 包 含 主 业 务 逻 辑 的 类 的 对 象 。 上 例 中 的StudentServiceImpl 的对象若被增强，则该类称为目标类，该类对象称为目标对象。当然，不被增强，也就无所谓目标不目标了 。</p>
 </li>
-<li><p>时间复杂度比递归好很多</p>
+<li><p>通知（Advice）  </p>
+<p>通知表示切面的执行时间， Advice 也叫增强。 上例中的 MyInvocationHandler 就可以理解为是一种通知。换个角度来说，==通知定义了增强代码切入到目标代码的时间点，==是目标方法执行之前执行，还是之后执行等。通知类型不同，切入时间不同。<br>==切入点定义切入的位置，通知定义切入的时间==</p>
 </li>
 </ol>
-<h2 id="什么题目可以用动态规划来解"><a href="#什么题目可以用动态规划来解" class="headerlink" title="什么题目可以用动态规划来解"></a><strong>什么题目可以用动态规划来解</strong></h2><ol>
-<li><p>计数：如：有多少种方式</p>
-</li>
-<li><p>求最值：如：最长上升子序列，最大数字和</p>
-</li>
-<li><p>存在性：如：能不能选出k个数</p>
-</li>
-</ol>
-<h3 id="例题一"><a href="#例题一" class="headerlink" title="例题一"></a>例题一</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change/">https://leetcode-cn.com/problems/coin-change/</a></p>
-<p>·你有三种硬币，分别面值2元，5元和7元，每种硬币都有足够多</p>
-<p>·买一本书需要27元</p>
-<p>·如何用最少的硬币组合正好付清，不需要对方找钱</p>
-<ol>
-<li><strong>第一步：确定状态</strong></li>
-</ol>
-<p>状态在动态规划中的作用属于定海神针，简单的说，解动态规划的时候需要开一个数组，状态决定了f[i]和f[i][j]代表什么。</p>
-<p>确定状态需要两个意识</p>
-<p>1.“最后一步”</p>
-<p>虽然我们不知道最优策略是什么，但是最优策略肯定是K枚硬币加起来面值等于27,最后一枚硬币面值是ak，除掉这枚硬币之后面值加起来是27-ak</p>
-<p><img src="https://img-blog.csdnimg.cn/20210115200750793.png" alt="img"></p>
-<p>关键点一：我们不关心前面的k-1枚硬币是怎么拼出27-ak的（可能有一种拼法，可能有很多种）甚至我们都还不知道k是什么ak是什么</p>
-<p>关键点二：因为是最优策略，所以拼出来的27-ak的硬币个数一定是最少，否则就不是最优策略了</p>
-<p>2.“子问题”</p>
-<p>原来我们要求最少多少枚硬币拼出27</p>
-<p>现在我们要求最少多少没硬币拼出27-ak</p>
-<p>问题的规模减小了，也就是确定了子问题，子问题出来便可以确定状态</p>
-<p>状态f(x)=最少用多少枚硬币可以拼出x,原问题是f(27)现在要求f(27-ak)。</p>
-<p>如果ak=2，f(27)=f(27-2)+1</p>
-<p>如果ak=5，f(27)=f(27-5)+1</p>
-<p>如果ak=7，f(27)=f(27-7)+1</p>
-<p>所以f(27)=min{f(27-2)+1，f(27-5)+1，f(27-7)+1}</p>
-<ol start="2">
-<li><strong>第二步：转移方程</strong></li>
-</ol>
-<p>设状态f[x]=最少多少枚硬币拼出x</p>
-<p>转移方程：（面试过程中，写对了转移方程就相当于对了一半）</p>
-<p><img src="https://img-blog.csdnimg.cn/20210115202253394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MzI4NDM2,size_16,color_FFFFFF,t_70" alt="img"></p>
-<ol start="3">
-<li> <strong>第三步：初始条件和边界值</strong></li>
-</ol>
-<p>边界值：保证数组不要越界。如果不能拼出Y,就定义f[Y]=正无穷</p>
-<p><img src="https://img-blog.csdnimg.cn/20210115202805250.png" alt="img"></p>
-<p>初始条件：由转移方程算不出来，需要手动定义。f[0]=0。</p>
-<ol start="4">
-<li><strong>第四步：计算顺序</strong></li>
-</ol>
-<p>本题和大多数动态规划的题目都是从小到大的计算顺序，f[0],f[1],f[2],f[3]…..</p>
-<p>确定规则：利用转移方程，本题中计算f[x]时，必须要已知f[x-2],f[x-5],f[x-7]所以要先把小的算出来</p>
-<p>例题算法实现：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39328436/article/details/112686479">https://blog.csdn.net/qq_39328436/article/details/112686479</a></p>
- <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//A数组存储硬币金额，M代表商品价值</span>
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">coinChange</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token class-name">A</span><span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token class-name">M</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">M</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-       f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<h2 id="5-AspectJdui-AOP的实现（掌握）"><a href="#5-AspectJdui-AOP的实现（掌握）" class="headerlink" title="5 AspectJdui AOP的实现（掌握）"></a>5 AspectJdui AOP的实现（掌握）</h2><p>​        对于 AOP 这种编程思想，很多框架都进行了实现。 Spring 就是其中之一，可以完成面向切面编程。然而， AspectJ 也实现了 AOP 的功能，且其实现方式更为简捷，使用更为方便，而且还支持注解式开发。所以， Spring 又将 AspectJ 的对于 AOP 的实现也引入到了自己的框架中。  </p>
+<p>​        在 Spring 中使用 AOP 开发时，一般使用 AspectJ 的实现方式。  </p>
+<h3 id="5-1-AspectJ的通知类型"><a href="#5-1-AspectJ的通知类型" class="headerlink" title="5.1 AspectJ的通知类型"></a>5.1 AspectJ的通知类型</h3><p>​    AspectJ 中常用的通知有五种类型：</p>
+<pre class="line-numbers language-none"><code class="language-none">1. 前置通知
+2. 后置通知
+3. 环绕通知
+4. 异常通知
+5. 最终通知  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">M</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           f<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
-           <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token class-name">A</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           	<span class="token comment">//第一个条件是防止数组越界:f[2]-5；第二个条件是防止MAX_VALUE+1越界</span>
-               <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;=</span> <span class="token class-name">A</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token class-name">A</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   f<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token class-name">A</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-           <span class="token punctuation">}</span>
-       <span class="token punctuation">}</span>
+<h3 id="5-2-AspectJ切入点表达式"><a href="#5-2-AspectJ切入点表达式" class="headerlink" title="5.2 AspectJ切入点表达式"></a>5.2 AspectJ切入点表达式</h3><p>​        AspectJ 定义了专门的表达式用于指定切入点。表达式的原型是：  </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token function">execution</span><span class="token punctuation">(</span>modifiers<span class="token operator">-</span>pattern<span class="token operator">?</span> ret<span class="token operator">-</span>type<span class="token operator">-</span>pattern
+	declaring<span class="token operator">-</span>type<span class="token operator">-</span>pattern<span class="token operator">?</span>name<span class="token operator">-</span><span class="token function">pattern</span><span class="token punctuation">(</span>param<span class="token operator">-</span>pattern<span class="token punctuation">)</span>
+	<span class="token keyword">throws</span><span class="token operator">-</span>pattern<span class="token operator">?</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-       <span class="token keyword">if</span> <span class="token punctuation">(</span>f<span class="token punctuation">[</span><span class="token class-name">M</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           f<span class="token punctuation">[</span><span class="token class-name">M</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
+<pre class="line-numbers language-none"><code class="language-none">解释：
+	modifiers-pattern] 访问权限类型
+	ret-type-pattern 返回值类型
+	declaring-type-pattern 包名类名
+	name-pattern(param-pattern) 方法名(参数类型和参数个数)
+	throws-pattern 抛出异常类型
+	？表示可选的部分
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-       <span class="token keyword">return</span> f<span class="token punctuation">[</span><span class="token class-name">M</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​    以上表达式共 4 个部分。<br>​        execution(访问权限 ==方法返回值== ==方法声明(参数)== 异常类型)</p>
+<p>​        切入点表达式要匹配的对象就是目标方法的方法名。所以， execution 表达式中明显就是方法的签名。 注意，表达式中黑色文字表示可省略部分，各部分间用空格分开。在其中可以使用以下符号：</p>
+<p>​                                                        <img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172009522.png" alt="image-20220317200919456">  </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">举例：
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token keyword">public</span> <span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：任意公共方法。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> set<span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：任何一个以“set”开始的方法。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：定义在 service 包里的任意类的任意方法。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span><span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：定义在 service 包或者子包里的任意类的任意方法。“<span class="token punctuation">.</span><span class="token punctuation">.</span>”出现在类名中时，后
+	面必须跟“<span class="token operator">*</span>”，表示包、子包下的所有类。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token punctuation">.</span>service<span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定所有包下的 serivce 子包下所有类（接口）中所有方法为切入点
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span>service<span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定只有一级包下的 serivce 子包下所有类（接口） 中所有方法为切入点
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span>ISomeService<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定只有一级包下的 <span class="token class-name">ISomeSerivce</span> 接口中所有方法为切入点
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token punctuation">.</span>ISomeService<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定所有包下的 <span class="token class-name">ISomeSerivce</span> 接口中所有方法为切入点
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span>IAccountService</span><span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为： <span class="token class-name">IAccountService</span> 接口中的任意方法。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span>IAccountService</span><span class="token operator">+</span><span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为： <span class="token class-name">IAccountService</span> 若为接口，则为接口中的任意方法及其所有实现类中的任意
+	方法；若为类，则为该类及其子类中的任意方法。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span>方法，且 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法的第一个参数是 <span class="token class-name">String</span>，第二个参
+	数是 <span class="token keyword">int</span>。如果方法中的参数类型是 java<span class="token punctuation">.</span>lang 包下的类，可以直接使用类名，否则必须使用
+	全限定类名，如 <span class="token function">joke</span><span class="token punctuation">(</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>List</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span>。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，该方法第一个参数为 <span class="token class-name">String</span>，第二个参数可以是任意类
+	型，如<span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token class-name">String</span> s2<span class="token punctuation">)</span>和<span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token keyword">double</span> d2<span class="token punctuation">)</span>都是，但<span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token keyword">double</span> d2<span class="token punctuation">,</span><span class="token class-name">String</span>
+	s3<span class="token punctuation">)</span>不是。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，该方法第一个参数为 <span class="token class-name">String</span>，后面可以有任意个参数且
+	参数类型不限，如 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">)</span>、 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token class-name">String</span> s2<span class="token punctuation">)</span>和 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token keyword">double</span> d2<span class="token punctuation">,</span><span class="token class-name">String</span> s3<span class="token punctuation">)</span>
+	都是。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，方法拥有一个参数，且参数是 <span class="token class-name">Object</span> 类型。 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> ob<span class="token punctuation">)</span>
+	是，但， <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>与 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">User</span> u<span class="token punctuation">)</span>均不是。
+	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，方法拥有一个参数，且参数是 <span class="token class-name">Object</span> 类型或该类的子类。
+	不仅 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> ob<span class="token punctuation">)</span>是， <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>和 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">User</span> u<span class="token punctuation">)</span>也是。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="5-3-AspectJ的开发环境"><a href="#5-3-AspectJ的开发环境" class="headerlink" title="5.3 AspectJ的开发环境"></a>5.3 AspectJ的开发环境</h3><p>（1）Maven依赖</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>4.11<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>5.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-aspects<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>5.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+插件
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-compiler-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>source</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>target</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-<p>小结</p>
-<p><img src="https://img-blog.csdnimg.cn/20210115203416175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MzI4NDM2,size_16,color_FFFFFF,t_70" alt="img"></p>
-<hr>
-<h3 id="例题二"><a href="#例题二" class="headerlink" title="例题二"></a>例题二</h3><p>机器人路径问题<br>题目：给定m行n列的网格，有一个机器人从左上角（0,0）出发，每一步可以向下或者向右走一步，问有多少种不同的方式走到右下角。</p>
-<p>可用计数型动态规划来求解。</p>
-<p>1、确定状态</p>
-<p>（1）最后一步</p>
-<p>聚焦机器人最后挪动的一歩，右下角坐标为（m-1，n-1），那么前一步机器人一定在（m-2，n-1）或者（m-1，n-2）</p>
-<p>（2）子问题</p>
-<p>轻易可得，机器人走到（m-1，n-1）的方式等于机器人走到（m-2，n-1）加上机器人走到（m-1，n-2）</p>
-<p>原问题是有多少种方式从左上角走到（m-1，n-1）</p>
-<p>子问题是有多少种方式从左上角走到（m-2，n-1）和（m-1，n-2）</p>
-<p>经过这两歩，得出状态：f[i][j]为机器人有多少种方式从左上角走到（i，j）</p>
-<p>2、转移方程</p>
-<p><img src="https://img-blog.csdnimg.cn/20200711134349993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDU1MDk2Mw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>3、初始条件和边界情况</p>
-<p>边界条件：i=0或者j=0时前一步只能从一个方向过来，所以f[i][j]=1</p>
-<p>初始条件:f[0][0]=1，机器人只有一种方式到左上角</p>
-<p>4、计算顺序</p>
-<p>计算第0行</p>
-<p>计算第1行</p>
-<p>…</p>
-<p>计算第m-1行</p>
-<p><img src="https://img-blog.csdnimg.cn/20200711175023487.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDU1MDk2Mw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">uniquePaths</span><span class="token punctuation">(</span><span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
-       <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
-       <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-               <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-               <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                   f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-           <span class="token punctuation">}</span>
-       <span class="token punctuation">}</span>
-       <span class="token keyword">return</span> f<span class="token punctuation">[</span>m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="例题三"><a href="#例题三" class="headerlink" title="例题三"></a>例题三</h3><p>题目：有n块石头分别放在x轴的0,1，…，n-1位置，一只青蛙在石头0，想要跳到石头n-1，若青蛙在第i块石头上，他最多可以向右跳距离ai，问青蛙能否跳到石头n-1。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200711175445447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDU1MDk2Mw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>经过分析，这是一个存在型动态规划问题<br><strong>1、确定状态</strong></p>
-<p>（1）最后一步</p>
-<p>最后一步是从i跳过来的，i&lt;n-1</p>
-<p>需要满足两个条件：</p>
-<ul>
-<li>青蛙可以跳到石头i；</li>
-<li>最后一步不能超过跳跃的最大距离，即n-1-i&lt;=ai</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200711181117830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDU1MDk2Mw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>（2）化为子问题</p>
-<p>所以就将原问题转化为了子问题：</p>
-<p>原问题是青蛙能不能跳到石头n-1</p>
-<p>子问题是青蛙能不能跳到石头i</p>
-<p><strong>经过这两歩，得出状态：f[j]表示青蛙能不能跳到石头j</strong></p>
-<p><strong>2、转移方程</strong></p>
-<p>f[j]表示青蛙能不能跳到石头j</p>
-<p>转移方程如下</p>
-<p><img src="https://img-blog.csdnimg.cn/20200711181600484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDU1MDk2Mw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p><strong>3、初始条件和边界情况</strong></p>
-<p>边界条件：枚举的i和j都不会越界，所以没有边界条件</p>
-<p>初始条件:f[0]=true，因为青蛙一开始就在石头0上</p>
-<p><strong>4、计算顺序</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/20200711181925231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDU1MDk2Mw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">canJump</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token class-name">A</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token class-name">A</span><span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
-       f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token class-name">A</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-           f<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-           <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-               <span class="token keyword">if</span> <span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">+</span> <span class="token class-name">A</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                   f<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                   <span class="token keyword">break</span><span class="token punctuation">;</span>
-               <span class="token punctuation">}</span>
-           <span class="token punctuation">}</span>
-       <span class="token punctuation">}</span>
-       <span class="token keyword">return</span> f<span class="token punctuation">[</span><span class="token class-name">A</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p>（2）引入AOP约束</p>
+<p>​        在 AspectJ 实现 AOP 时，要引入 AOP 的约束。配置文件中使用的 AOP 约束中的标签，均是 AspectJ 框架使用的，而非 Spring 框架本身在实现 AOP 时使用的。  </p>
+<p>AspectJ 对于 AOP 的实现有注解和配置文件两种方式，常用是注解方式。  </p>
+<h3 id="5-4-AspectJ基于注解的AOP实现"><a href="#5-4-AspectJ基于注解的AOP实现" class="headerlink" title="5.4 AspectJ基于注解的AOP实现"></a>5.4 AspectJ基于注解的AOP实现</h3><p>​    AspectJ 提供了以注解方式对于 AOP 的实现。  </p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172016455.png" alt="image-20220317201655320"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172017809.png" alt="image-20220317201706712"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172017836.png" alt="image-20220317201723709"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172017585.png" alt="image-20220317201742472"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172018101.png" alt="image-20220317201812012"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172018987.png" alt="image-20220317201852824"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172019658.png" alt="image-20220317201915570"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172019356.png" alt="image-20220317201952247"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020438.png" alt="image-20220317202003357"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020680.png" alt="image-20220317202014570"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020299.png" alt="image-20220317202025177"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020218.png" alt="image-20220317202038101"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020699.png" alt="image-20220317202045601"></p>
+<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020970.png" alt="image-20220317202054847"></p>
 
                 
             </div>
@@ -690,7 +659,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liangbingtao.github.io/2021/12/28/dong-tai-gui-hua/">https://liangbingtao.github.io/2021/12/28/dong-tai-gui-hua/</a>
+                    <a href="https://liangbingtao.github.io/2022/03/17/aop-mian-xiang-qie-mian-bian-cheng/">https://liangbingtao.github.io/2022/03/17/aop-mian-xiang-qie-mian-bian-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -728,12 +697,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/AOP/">
+                                    <span class="chip bg-color">AOP</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                    <span class="chip bg-color">动态规划</span>
+                                <a href="/tags/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">面向切面编程</span>
                                 </a>
                             
                         </div>
@@ -905,70 +874,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/12/28/java-shi-wu/">
+                <a href="/2022/03/17/aop-mian-xiang-qie-mian-bian-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Java事务">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="AOP面向切面编程">
                         
-                        <span class="card-title">Java事务</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
-                                    编程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%BC%96%E7%A8%8B/">
-                        <span class="chip bg-color">编程</span>
-                    </a>
-                    
-                    <a href="/tags/java%E4%BA%8B%E5%8A%A1/">
-                        <span class="chip bg-color">java事务</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/28/redis-ru-men/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="redis笔记">
-                        
-                        <span class="card-title">redis笔记</span>
+                        <span class="card-title">AOP面向切面编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -979,7 +896,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
                             </span>
                         <span class="publish-author">
                             
@@ -993,15 +910,69 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis/">
-                        <span class="chip bg-color">redis</span>
+                    <a href="/tags/AOP/">
+                        <span class="chip bg-color">AOP</span>
                     </a>
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">面向切面编程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/27/jvm-bi-ji-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Java虚拟机笔记(1)">
+                        
+                        <span class="card-title">Java虚拟机笔记(1)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Java基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">Java基础</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">编程</span>
                     </a>
                     
                 </div>
