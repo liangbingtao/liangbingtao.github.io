@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="AOP面向切面编程, neo&#39;s blog">
-    <meta name="description" content="AOP面向切面编程1  不使用AOP的开发方式Step1：项目aop_leadin1
-​    先定义好接口与一个实现类，该实现类中除了要实现接口中的方法外，还要再写两个非业务方法。非业务方法也称为交叉业务逻辑：​         ➢ do">
+    <meta name="keywords" content="Stream流的使用技巧, neo&#39;s blog">
+    <meta name="description" content="Stream流的使用技巧stream流的使用主要包括三个步骤：数据源+数据处理+收集结果，先来一个简单的例子进行了解，定义一个User类，包含name,age，和salary三个字段，在main方法中有如下操作：
+package com.n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>AOP面向切面编程 | neo&#39;s blog</title>
+    <title>Stream流的使用技巧 | neo&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">AOP面向切面编程</h1>
+                    <h1 class="description center-align post-title">Stream流的使用技巧</h1>
                 </div>
             </div>
         </div>
@@ -412,12 +412,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/AOP/">
-                                <span class="chip bg-color">AOP</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
-                                <span class="chip bg-color">面向切面编程</span>
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
                             </a>
                         
                     </div>
@@ -441,7 +441,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-17
+                    2022-04-21
                 </div>
                 
 
@@ -450,14 +450,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    528
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    2 分
                 </div>
                 
 
@@ -480,159 +480,97 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="AOP面向切面编程"><a href="#AOP面向切面编程" class="headerlink" title="AOP面向切面编程"></a>AOP面向切面编程</h1><h2 id="1-不使用AOP的开发方式"><a href="#1-不使用AOP的开发方式" class="headerlink" title="1  不使用AOP的开发方式"></a>1  不使用AOP的开发方式</h2><p><strong>Step1：项目aop_leadin1</strong></p>
-<p>​    先定义好接口与一个实现类，该实现类中除了要实现接口中的方法外，还要再写两个非业务方法。非业务方法也称为交叉业务逻辑：<br>​         ➢ doTransaction()：用于事务处理<br>​         ➢ doLog()：用于日志处理<br> 然后，再使接口方法调用它们。接口方法也称为主业务逻辑。</p>
-<p>接口：  </p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171952557.png" alt="image-20220317195241372"></p>
-<p><strong>Step2： 项目 aop_leadin2</strong>  </p>
-<p>​    当然，也可以有另一种解决方案：将这些交叉业务逻辑代码放到专门的工具类或处理类中，由主业务逻辑调用。  </p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171953342.png" alt="image-20220317195331218"></p>
-<p><strong>Step3： 项目 aop_leadin3</strong></p>
-<p>​        以上的解决方案，还是存在弊端：交叉业务与主业务深度耦合在一起。当交叉业务逻辑较多时，在主业务代码中会出现大量的交叉业务逻辑代码调用语句，大大影响了主业务逻辑的可读性，降低了代码的可维护性，同时也增加了开发难度。<br>       所以，可以采用动态代理方式。在不修改主业务逻辑的前提下，扩展和增强其功能。功能增强：  </p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171954943.png" alt="image-20220317195447827"></p>
-<h2 id="2-AOP简介"><a href="#2-AOP简介" class="headerlink" title="2  AOP简介"></a>2  AOP简介</h2><p>​        AOP（Aspect Orient Programming），面向切面编程。 面向切面编程是从动态角度考虑程序运行过程。<br>​        AOP 底层，就是采用动态代理模式实现的。采用了两种代理： ==JDK 的动态代理==，与 ==CGLIB的动态代理==。  </p>
-<p>​        AOP 为 Aspect Oriented Programming 的缩写，意为：面向切面编程， 可通过运行期动态代理实现程序功能的统一维护的一种技术。 AOP 是 Spring 框架中的一个重要内容。利用 AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
-<p>​        面向切面编程，就是将交叉业务逻辑封装成切面，利用 AOP 容器的功能将切面织入到主业务逻辑中。所谓交叉业务逻辑是指，通用的、与主业务逻辑无关的代码，如安全检查、事务、日志、缓存等。<br>​        若不使用 AOP，则会出现代码纠缠，即交叉业务逻辑与主业务逻辑混合在一起。这样，会使主业务逻辑变的混杂不清。<br>​        例如，转账，在真正转账业务逻辑前后，需要权限控制、日志记录、加载事务、结束事务等交叉业务逻辑，而这些业务逻辑与主业务逻辑间并无直接关系。但，它们的代码量所占比重能达到总代码量的一半甚至还多。它们的存在，不仅产生了大量的“冗余”代码，还大大干扰了主业务逻辑—转账。  </p>
-<h2 id="3-面向切面编程的好处"><a href="#3-面向切面编程的好处" class="headerlink" title="3 面向切面编程的好处"></a>3 面向切面编程的好处</h2><ol>
-<li>减少重复</li>
-<li>专注业务</li>
-</ol>
-<p>注意：面向切面编程只是面向对象编程的一种补充。</p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203171959336.png" alt="image-20220317195942260"></p>
-<h2 id="4-AOP编程术语"><a href="#4-AOP编程术语" class="headerlink" title="4  AOP编程术语"></a>4  AOP编程术语</h2><ol>
-<li><p>切面（Aspect）</p>
-<p>切面泛指交叉业务逻辑。上例中的事务处理、日志处理就可以理解为切面。常用的切面是通知（Advice）。实际就是对主业务逻辑的一种增强。  </p>
-</li>
-<li><p>连接点（JoinPoint）  </p>
-<p>连接点指可以被切面织入的具体方法。通常业务接口中的方法均为连接点。  </p>
-</li>
-<li><p>切入点（Pointcut）  </p>
-<p>切入点指声明的一个或多个连接点的集合。通过切入点指定一组方法。<br>被标记为 final 的方法是不能作为连接点与切入点的。因为最终的是不能被修改的，不能被增强的。  </p>
-</li>
-<li><p>目标对象（Target）  </p>
-<p>目 标 对 象 指 将 要 被 增 强 的 对 象 。 即 包 含 主 业 务 逻 辑 的 类 的 对 象 。 上 例 中 的StudentServiceImpl 的对象若被增强，则该类称为目标类，该类对象称为目标对象。当然，不被增强，也就无所谓目标不目标了 。</p>
-</li>
-<li><p>通知（Advice）  </p>
-<p>通知表示切面的执行时间， Advice 也叫增强。 上例中的 MyInvocationHandler 就可以理解为是一种通知。换个角度来说，==通知定义了增强代码切入到目标代码的时间点，==是目标方法执行之前执行，还是之后执行等。通知类型不同，切入时间不同。<br>==切入点定义切入的位置，通知定义切入的时间==</p>
-</li>
-</ol>
-<h2 id="5-AspectJdui-AOP的实现（掌握）"><a href="#5-AspectJdui-AOP的实现（掌握）" class="headerlink" title="5 AspectJdui AOP的实现（掌握）"></a>5 AspectJdui AOP的实现（掌握）</h2><p>​        对于 AOP 这种编程思想，很多框架都进行了实现。 Spring 就是其中之一，可以完成面向切面编程。然而， AspectJ 也实现了 AOP 的功能，且其实现方式更为简捷，使用更为方便，而且还支持注解式开发。所以， Spring 又将 AspectJ 的对于 AOP 的实现也引入到了自己的框架中。  </p>
-<p>​        在 Spring 中使用 AOP 开发时，一般使用 AspectJ 的实现方式。  </p>
-<h3 id="5-1-AspectJ的通知类型"><a href="#5-1-AspectJ的通知类型" class="headerlink" title="5.1 AspectJ的通知类型"></a>5.1 AspectJ的通知类型</h3><p>​    AspectJ 中常用的通知有五种类型：</p>
-<pre class="line-numbers language-none"><code class="language-none">1. 前置通知
-2. 后置通知
-3. 环绕通知
-4. 异常通知
-5. 最终通知  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Stream流的使用技巧"><a href="#Stream流的使用技巧" class="headerlink" title="Stream流的使用技巧"></a>Stream流的使用技巧</h1><p>stream流的使用主要包括三个步骤：数据源+数据处理+收集结果，先来一个简单的例子进行了解，定义一个<code>User</code>类，包含<code>name</code>,<code>age</code>，和<code>salary</code>三个字段，在main方法中有如下操作：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>neo<span class="token punctuation">.</span>stream</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span></span><span class="token class-name">Predicate</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span></span><span class="token class-name">Collectors</span><span class="token punctuation">;</span>
 
-<h3 id="5-2-AspectJ切入点表达式"><a href="#5-2-AspectJ切入点表达式" class="headerlink" title="5.2 AspectJ切入点表达式"></a>5.2 AspectJ切入点表达式</h3><p>​        AspectJ 定义了专门的表达式用于指定切入点。表达式的原型是：  </p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token function">execution</span><span class="token punctuation">(</span>modifiers<span class="token operator">-</span>pattern<span class="token operator">?</span> ret<span class="token operator">-</span>type<span class="token operator">-</span>pattern
-	declaring<span class="token operator">-</span>type<span class="token operator">-</span>pattern<span class="token operator">?</span>name<span class="token operator">-</span><span class="token function">pattern</span><span class="token punctuation">(</span>param<span class="token operator">-</span>pattern<span class="token punctuation">)</span>
-	<span class="token keyword">throws</span><span class="token operator">-</span>pattern<span class="token operator">?</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">/**
+ * @author Neo
+ * @date 2022-04-21 09:40:37
+ * @desc Stream流的使用技巧
+ * 主要分为三步：数据源+数据处理+收集结果
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StreamDemo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-<pre class="line-numbers language-none"><code class="language-none">解释：
-	modifiers-pattern] 访问权限类型
-	ret-type-pattern 返回值类型
-	declaring-type-pattern 包名类名
-	name-pattern(param-pattern) 方法名(参数类型和参数个数)
-	throws-pattern 抛出异常类型
-	？表示可选的部分
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token comment">//1.数据源</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token string">"小明"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token string">"小红"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token string">"小张"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<p>​    以上表达式共 4 个部分。<br>​        execution(访问权限 ==方法返回值== ==方法声明(参数)== 异常类型)</p>
-<p>​        切入点表达式要匹配的对象就是目标方法的方法名。所以， execution 表达式中明显就是方法的签名。 注意，表达式中黑色文字表示可省略部分，各部分间用空格分开。在其中可以使用以下符号：</p>
-<p>​                                                        <img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172009522.png" alt="image-20220317200919456">  </p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">举例：
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token keyword">public</span> <span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：任意公共方法。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> set<span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：任何一个以“set”开始的方法。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：定义在 service 包里的任意类的任意方法。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span><span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：定义在 service 包或者子包里的任意类的任意方法。“<span class="token punctuation">.</span><span class="token punctuation">.</span>”出现在类名中时，后
-	面必须跟“<span class="token operator">*</span>”，表示包、子包下的所有类。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token punctuation">.</span>service<span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定所有包下的 serivce 子包下所有类（接口）中所有方法为切入点
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span>service<span class="token punctuation">.</span>*<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定只有一级包下的 serivce 子包下所有类（接口） 中所有方法为切入点
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span>ISomeService<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定只有一级包下的 <span class="token class-name">ISomeSerivce</span> 接口中所有方法为切入点
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token punctuation">.</span>ISomeService<span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定所有包下的 <span class="token class-name">ISomeSerivce</span> 接口中所有方法为切入点
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span>IAccountService</span><span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为： <span class="token class-name">IAccountService</span> 接口中的任意方法。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>xyz<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span>IAccountService</span><span class="token operator">+</span><span class="token punctuation">.</span>*<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为： <span class="token class-name">IAccountService</span> 若为接口，则为接口中的任意方法及其所有实现类中的任意
-	方法；若为类，则为该类及其子类中的任意方法。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span>方法，且 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法的第一个参数是 <span class="token class-name">String</span>，第二个参
-	数是 <span class="token keyword">int</span>。如果方法中的参数类型是 java<span class="token punctuation">.</span>lang 包下的类，可以直接使用类名，否则必须使用
-	全限定类名，如 <span class="token function">joke</span><span class="token punctuation">(</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>List</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span>。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，该方法第一个参数为 <span class="token class-name">String</span>，第二个参数可以是任意类
-	型，如<span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token class-name">String</span> s2<span class="token punctuation">)</span>和<span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token keyword">double</span> d2<span class="token punctuation">)</span>都是，但<span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token keyword">double</span> d2<span class="token punctuation">,</span><span class="token class-name">String</span>
-	s3<span class="token punctuation">)</span>不是。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，该方法第一个参数为 <span class="token class-name">String</span>，后面可以有任意个参数且
-	参数类型不限，如 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">)</span>、 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token class-name">String</span> s2<span class="token punctuation">)</span>和 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span><span class="token keyword">double</span> d2<span class="token punctuation">,</span><span class="token class-name">String</span> s3<span class="token punctuation">)</span>
-	都是。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，方法拥有一个参数，且参数是 <span class="token class-name">Object</span> 类型。 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> ob<span class="token punctuation">)</span>
-	是，但， <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>与 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">User</span> u<span class="token punctuation">)</span>均不是。
-	<span class="token function">execution</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	指定切入点为：所有的 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法，方法拥有一个参数，且参数是 <span class="token class-name">Object</span> 类型或该类的子类。
-	不仅 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> ob<span class="token punctuation">)</span>是， <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span>和 <span class="token function">joke</span><span class="token punctuation">(</span><span class="token class-name">User</span> u<span class="token punctuation">)</span>也是。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token comment">//2.数据处理</span>
+        <span class="token comment">//条件</span>
+        <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span> predicate1 <span class="token operator">=</span> user <span class="token operator">-&gt;</span> user<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">21</span><span class="token punctuation">;</span>
+        <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span> predicate2 <span class="token operator">=</span> user <span class="token operator">-&gt;</span> user<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">2000</span><span class="token punctuation">;</span>
 
-<h3 id="5-3-AspectJ的开发环境"><a href="#5-3-AspectJ的开发环境" class="headerlink" title="5.3 AspectJ的开发环境"></a>5.3 AspectJ的开发环境</h3><p>（1）Maven依赖</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>4.11<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>5.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-aspects<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>5.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
-插件
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">&gt;</span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-compiler-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
-				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>source</span><span class="token punctuation">&gt;</span></span>
-				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>target</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">&gt;</span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token comment">//A且B</span>
+<span class="token comment">//        List&lt;User&gt; collect = list.stream()</span>
+<span class="token comment">//                .filter(predicate1)</span>
+<span class="token comment">//                .filter(predicate2)</span>
+<span class="token comment">//                .collect(Collectors.toList());</span>
 
-<p>（2）引入AOP约束</p>
-<p>​        在 AspectJ 实现 AOP 时，要引入 AOP 的约束。配置文件中使用的 AOP 约束中的标签，均是 AspectJ 框架使用的，而非 Spring 框架本身在实现 AOP 时使用的。  </p>
-<p>AspectJ 对于 AOP 的实现有注解和配置文件两种方式，常用是注解方式。  </p>
-<h3 id="5-4-AspectJ基于注解的AOP实现"><a href="#5-4-AspectJ基于注解的AOP实现" class="headerlink" title="5.4 AspectJ基于注解的AOP实现"></a>5.4 AspectJ基于注解的AOP实现</h3><p>​    AspectJ 提供了以注解方式对于 AOP 的实现。  </p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172016455.png" alt="image-20220317201655320"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172017809.png" alt="image-20220317201706712"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172017836.png" alt="image-20220317201723709"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172017585.png" alt="image-20220317201742472"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172018101.png" alt="image-20220317201812012"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172018987.png" alt="image-20220317201852824"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172019658.png" alt="image-20220317201915570"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172019356.png" alt="image-20220317201952247"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020438.png" alt="image-20220317202003357"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020680.png" alt="image-20220317202014570"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020299.png" alt="image-20220317202025177"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020218.png" alt="image-20220317202038101"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020699.png" alt="image-20220317202045601"></p>
-<p><img src="https://gitee.com/codedrinkerLiang/blog_img/raw/master/202203172020970.png" alt="image-20220317202054847"></p>
+        <span class="token comment">//A或B</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span> collect <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>predicate1<span class="token punctuation">.</span><span class="token function">or</span><span class="token punctuation">(</span>predicate2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">//数据收集</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>collect<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下面是Stream流中常用的一些方法演示</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">	<span class="token comment">//1. filter 筛选元素</span>
+     <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">,</span> <span class="token string">"java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     <span class="token comment">//filter和foreach内都可以写lambda表达式</span>
+     list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>str<span class="token operator">-&gt;</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;=</span><span class="token number">5</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>str<span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+     <span class="token comment">//2. limit截取元素</span>
+     list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>str<span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     <span class="token comment">//3. sorted 排序,默认为升序排序，如果想要降序排列，可以在sorted括号中加入Comparator.reverseOrder()</span>
+     <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> list1 <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">reverseOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>num<span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token operator">+</span><span class="token string">" "</span><span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//4. 求最大值最小值以及集合长度</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">compareTo</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">compareTo</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+     <span class="token comment">//5. map 对集合中的元素进行特定操作</span>
+     <span class="token comment">// 对list1中的每个元素加10后输出</span>
+     list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>num <span class="token operator">-&gt;</span> num <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>num <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+     <span class="token comment">//6. reduce 对集合中的元素进行特定处理，并将最终结果合并成一个结果返回，而map返回的元素个数仍未原个数</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sum<span class="token punctuation">,</span> num<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> sum <span class="token operator">+</span> num<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+     <span class="token comment">//7. collection 基于目标集合生成新的集合</span>
+     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>num <span class="token operator">-&gt;</span> num <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -659,7 +597,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liangbingtao.github.io/2022/03/17/aop-mian-xiang-qie-mian-bian-cheng/">https://liangbingtao.github.io/2022/03/17/aop-mian-xiang-qie-mian-bian-cheng/</a>
+                    <a href="https://liangbingtao.github.io/2022/04/21/stream-liu-de-shi-yong-ji-qiao/">https://liangbingtao.github.io/2022/04/21/stream-liu-de-shi-yong-ji-qiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -697,12 +635,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/AOP/">
-                                    <span class="chip bg-color">AOP</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
-                                <a href="/tags/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
-                                    <span class="chip bg-color">面向切面编程</span>
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
                                 </a>
                             
                         </div>
@@ -874,9 +812,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/04/21/stream-liu-de-shi-yong-ji-qiao/">
                     <div class="card-image">
@@ -894,9 +833,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -909,6 +848,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -931,13 +871,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/27/jvm-bi-ji-yi/">
+                <a href="/2022/03/17/aop-mian-xiang-qie-mian-bian-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Java虚拟机笔记(1)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="AOP面向切面编程">
                         
-                        <span class="card-title">Java虚拟机笔记(1)</span>
+                        <span class="card-title">AOP面向切面编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -948,14 +888,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Java基础
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    编程
                                 </a>
                             
                             
@@ -965,12 +905,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">Java基础</span>
+                    <a href="/tags/AOP/">
+                        <span class="chip bg-color">AOP</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E7%A8%8B/">
-                        <span class="chip bg-color">编程</span>
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">面向切面编程</span>
                     </a>
                     
                 </div>
