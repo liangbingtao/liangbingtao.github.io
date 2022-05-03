@@ -485,7 +485,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Pattern类和Matcher类"><a href="#Pattern类和Matcher类" class="headerlink" title="Pattern类和Matcher类"></a>Pattern类和Matcher类</h1><p>​       java.util.regex 是一个用正则表达式所订制的模式来对字符串进行匹配工作的类库包。它包括两个类：Pattern 和 Matcher。</p>
-<p>　　一个 Pattern 就是一个正则表达式经编译后的表现模式。一个 Matcher 对象就是一个状态机器，它依据Pattern对象做为匹配模式对字符串展开匹配检查。 首先一个Pattern实例订制了一个所用语法与PERL的类似的正则表达式经编译后的模式，然后一个Matcher实例在这个给定的Pattern实例的模式控制下进行字符串的匹配工作。</p>
+<p>　　一个 Pattern 就是一个正则表达式经编译后的表现模式。一个 Matcher 对象就是一个状态机器，它依据Pattern对象作为匹配模式对字符串展开匹配检查。 首先一个Pattern实例订制了一个所用语法与PERL的类似的正则表达式经编译后的模式，然后一个Matcher实例在这个给定的Pattern实例的模式控制下进行字符串的匹配工作。</p>
 <h2 id="一、捕获组的概念"><a href="#一、捕获组的概念" class="headerlink" title="一、捕获组的概念"></a>一、捕获组的概念</h2><blockquote>
 <p>捕获组可以通过从左到右计算其开括号来编号，编号是从1开始的。例如在表达式<code>((A)(B(c))</code>中，存在四个这样的组：</p>
 <ul>
@@ -497,7 +497,7 @@
 </blockquote>
 <p>捕获组分类：（1）普通捕获组（Expression）；（2）命名捕获组（？&lt;name&gt;Expression）</p>
 <ol>
-<li><p>普通捕获组——从正则表达式左侧开始，没出现一个左括号“(”记作一个分组，分组编号从1开始，0代表整个表达式。</p>
+<li><p>普通捕获组——从正则表达式左侧开始，每出现一个左括号“(”记作一个分组，分组编号从1开始，0代表整个表达式。</p>
 <p>对于时间字符串<code>(\\d{4})-((\\d{2})-(\\d{2}))</code>有4个左括号，所以有4个分组：</p>
 <table>
 <thead>
@@ -698,7 +698,7 @@ m4<span class="token punctuation">.</span><span class="token function">find</spa
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="http://liangbingtao.top/202205021851415.png/blog" alt="image-20220502185138300"></p>
+<p><img src="http://liangbingtao.top/202205021851415.png" alt="image-20220502185138300"></p>
 <p>其中m对象的from属性和to属性分别标记了被匹配字符串的起始索引和末尾索引，而first属性和last属性分别标记了当前所匹配到的字符串起止位置的索引，如上图所示，当前被匹配字符串A一共有50个字符，而当前匹配到的位置为0至4位置，即第一个<code>java</code>所在的位置。当下一次循环时，first和last的值会发生变化，分别变为17和21，对应着第二个<code>java</code>所在位置的起止索引。</p>
 </li>
 </ul>
